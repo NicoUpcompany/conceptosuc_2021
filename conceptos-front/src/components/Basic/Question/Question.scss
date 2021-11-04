@@ -1,6 +1,6 @@
 
 .container-question{
-    max-width: 1280px;
+    // max-width: 1280px;
     margin-top: 80px;
     height: 120px;
     display: flex;
@@ -13,7 +13,7 @@
         justify-content: space-around;
         align-items: center;
         border: 1px solid #f2f2f2;
-        border-top: 5px solid rgb(26, 86, 177);
+        border-top: 5px solid #0F299B ;
         
         .texto{
             width: 20%;
@@ -29,14 +29,15 @@
         .option{
             width: 15%;
             height: 50px;
-            background-color: #247;
-            border-color: #247;
+            background-color: #247ce0;
+            border-color: #247ce0;
             color: white;
             font-size: 16px;
             cursor: pointer;
 
             &:hover{
-                background-color: #f2f2f2;
+                background-color: #0f6dd8;
+                border-color: #0f6dd8;
             }
             
         }

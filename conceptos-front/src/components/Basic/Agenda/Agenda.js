@@ -33,7 +33,7 @@ const Agenda = (props) => {
 	return (
 		<>
 			<div className="contenedorAgenda" id="agenda">
-				<div className="agenda">
+				<div className="agendap">
 					<div className="days">
 						<button id="12" className={dia === 12 ? "clase" : ""} onClick={() => setDia(12)}>
 							<span> Viernes 12 de Noviembre</span>

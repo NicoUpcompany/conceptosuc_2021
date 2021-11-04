@@ -2,7 +2,7 @@ import React from 'react'
 import { Speaker } from './Speaker'
 import flecha from "../../../assets/img/flecha.png";
 
-export const RowSpeaker = ({id, grey, inicio, fin, tematica, nombre, moderador, speaker,cargo1, cargo2, empresa, setSaveData, abrirCerrar, state, imgSpeaker1, imgSpeaker2, tematica2, speaker2, cargo3, empresa2, imgSpeaker3, speaker3, speaker4, speaker5, speaker6, imgSpeaker4,imgSpeaker5,imgSpeaker6,imgSpeaker7 }) => {
+export const RowSpeaker = ({id,open=true, grey, inicio, fin, tematica, nombre, moderador, speaker,cargo1, cargo2, empresa, setSaveData, abrirCerrar, state, imgSpeaker1, imgSpeaker2, tematica2, speaker2, cargo3, empresa2, imgSpeaker3, speaker3, speaker4, speaker5, speaker6, imgSpeaker4,imgSpeaker5,imgSpeaker6,imgSpeaker7 }) => {
     return (
         <div className={`row2 ${grey}`} id={`row${id}`}  style={{ transitionDuration: "1s" }}>
 				<div className="fondoRow">
@@ -11,16 +11,18 @@ export const RowSpeaker = ({id, grey, inicio, fin, tematica, nombre, moderador, 
 							{inicio} <span>{inicio && "-"}</span> {fin} {fin && "hrs"} 
 						</p>
 					</div>
-
 					<div className="plenario">
-						<p className="texto2">
-							<img src={flecha} alt="" id={`flecha${id}`} onClick={() => abrirCerrar(`imagen${id}` , `flecha${id}`)} />
-							{state ? null : (
-								<a onClick={() => setSaveData(3)} className="conFondo">
-									ENTRAR AL SALÓN{" "}
-								</a>
-							)}
-						</p>
+						{
+							open &&
+							<p className="texto2">
+								<img src={flecha} alt="" id={`flecha${id}`} onClick={() => abrirCerrar(`imagen${id}` , `flecha${id}`)} />
+								{state ? null : (
+									<a onClick={() => setSaveData(3)} className="conFondo">
+										ENTRAR AL SALÓN{" "}
+									</a>
+								)}
+							</p>
+						}
 						<p className="texto1">
 							<strong>{tematica}</strong>
 						</p>
