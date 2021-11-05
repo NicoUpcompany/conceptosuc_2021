@@ -3,6 +3,42 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import FreeBreakfastIcon from "@material-ui/icons/FreeBreakfast";
 import { RowSpeaker } from "./RowSpeaker";
+import mikel from '../../../assets/expo/mikel.jpg';
+import alonso from '../../../assets/expo/alonso.png';
+import ricardo from '../../../assets/expo/ricardo.jpg';
+import wilfredo from '../../../assets/expo/wilfredo.jpg';
+import oscar from '../../../assets/expo/oscar.png';
+import pablo from '../../../assets/expo/pablo.png';
+import josew from '../../../assets/expo/josew.png';
+import luis from '../../../assets/expo/luis.jpg';
+import jose from '../../../assets/expo/jose.png';
+import aliosha from '../../../assets/expo/aliosha.png';
+import jeronimo from '../../../assets/expo/jeronimo.png';
+import barbara from '../../../assets/expo/barbara.jpg';
+import daniela from '../../../assets/expo/daniela.jpg';
+import sofia from '../../../assets/expo/sofia.jpg';
+import ludwin from '../../../assets/expo/ludwin.png';
+import jorge from '../../../assets/expo/jorge.png';
+import alejandro from '../../../assets/expo/alejandro.png';
+import tomas from '../../../assets/expo/tomas.jpg';
+import felipe from '../../../assets/expo/felipe.png';
+import carlos from '../../../assets/expo/carlos.png';
+import hans from '../../../assets/expo/hand.png';
+import cristo from '../../../assets/expo/cristo.png';
+import cristian from '../../../assets/expo/cristian.png';
+import rolando from '../../../assets/expo/rolando.png';
+import felipem from '../../../assets/expo/felipem.png';
+import allan from '../../../assets/expo/allan.png';
+import drpo from '../../../assets/expo/drpo.png';
+import maria from '../../../assets/expo/maria.png';
+import renato from '../../../assets/expo/renato.png';
+import carolina from '../../../assets/expo/carolina.png';
+import daniel from '../../../assets/expo/daniel.jpg';
+import viera from '../../../assets/expo/viera.jpg';
+import cristians from '../../../assets/expo/cristians.png';
+import sofiar from '../../../assets/expo/sofiar.jpg';
+import ismael from '../../../assets/expo/ismael.png';
+
 
 const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 	return (
@@ -30,9 +66,14 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				fin="08:35"
 				tematica="Bienvenida"
 				moderador="Dr. Mikel Urquiza"
-				speaker="Dr. Alonso Miguel"
-				cargo1="Chile"
-				cargo2="Chile"
+				speaker2="Dr. Alonso Miguel"
+				cargo1="Miembro del Comité de Postgrado en Medicina de Urgencia 
+				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021"
+				cargo2="Especialista en Medicina de Urgencia
+				Diplomado en Docencia Universitaria – PUC
+				Instructor en Simulación – IMS"
+				imgSpeaker1={mikel}
+				imgSpeaker2={alonso}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -43,8 +84,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="08:35"
 				fin="08:55"
 				tematica="Intoxicación por alcoholes (más) tóxicos"
-				speaker="Dr. Cristopher Opazo"
-				cargo1="Chile"
+				speaker2="Dr. Cristopher Opazo"
+				cargo2="Médico Urgenciólogo titulado UC, 
+				instructor adjunto, Coordinador CASR"
+				imgSpeaker2={cristo}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -55,10 +98,14 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="08:55"
 				fin="09:10"
 				tematica="Carbón Activado: ¿Cuándo? ¿Cómo? ¿Donde?"
-				speaker="Dr. Cristian Osores "
-				speaker2="Dr. Óscar Navea"
-				cargo2="Chile"
-				cargo1="Chile"
+				speaker2="Dr. Cristian Osores "
+				speaker3="Dr. Óscar Navea"
+				cargo3="Especialista en Medicina de Urgencia
+				Jefe de Pregrado, Profesor Asistente UC"
+				cargo2="Becado Medicina de Urgencia
+				Pontificia Universidad Católica de Chile"
+				imgSpeaker2={cristian}
+				imgSpeaker3={oscar}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -69,8 +116,11 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="09:10"
 				fin="09:20"
 				tematica="Abstinencia OH - Algo de lo que tenemos que hablar"
-				speaker="Dr. Rolando Valenzuela "
-				cargo1="Chile"
+				speaker2="Dr. Rolando Valenzuela, USA"
+				cargo2="Médico de Emergencias en Stony Brook, NY 
+				Profesor Clínico Asistente de Medicina de Emergencia, División de Medicina Internacional de Emergencia, Desarrollo de sistemas de trauma, Desarrollo de registros de trauma, Desarrollo de EM en sistemas de salud, medicina tropical
+				"
+				imgSpeaker2={rolando}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
