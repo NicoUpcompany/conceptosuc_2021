@@ -6,21 +6,8 @@ import { RowSpeaker } from "./RowSpeaker";
 import mikel from '../../../assets/expo/mikel.jpg';
 import alonso from '../../../assets/expo/alonso.png';
 import ricardo from '../../../assets/expo/ricardo.jpg';
-import wilfredo from '../../../assets/expo/wilfredo.jpg';
 import oscar from '../../../assets/expo/oscar.png';
 import pablo from '../../../assets/expo/pablo.png';
-import josew from '../../../assets/expo/josew.png';
-import luis from '../../../assets/expo/luis.jpg';
-import jose from '../../../assets/expo/jose.png';
-import aliosha from '../../../assets/expo/aliosha.png';
-import jeronimo from '../../../assets/expo/jeronimo.png';
-import barbara from '../../../assets/expo/barbara.jpg';
-import daniela from '../../../assets/expo/daniela.jpg';
-import sofia from '../../../assets/expo/sofia.jpg';
-import ludwin from '../../../assets/expo/ludwin.png';
-import jorge from '../../../assets/expo/jorge.png';
-import alejandro from '../../../assets/expo/alejandro.png';
-import tomas from '../../../assets/expo/tomas.jpg';
 import felipe from '../../../assets/expo/felipe.png';
 import carlos from '../../../assets/expo/carlos.png';
 import hans from '../../../assets/expo/hand.png';
@@ -131,8 +118,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="09:20"
 				fin="09:30"
 				tematica="Diálisis en Intoxicaciones"
-				speaker="Dr. Felipe Maluenda"
-				cargo1="Chile"
+				speaker2="Dr. Felipe Maluenda"
+				cargo2="Becado Medicina de Urgencia
+				Pontificia Universidad Católica de Chile"
+				imgSpeaker2={cristian}
 			/>
 
 			<div className="break">
@@ -154,15 +143,25 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				fin="09:50"
 				tematica="Mesa redonda"
 				moderador="Dr. Óscar Navea"
-				speaker="Dr. R. Valenzuela "
-				speaker2="Dr. C. Opazo"
-				speaker3="Dr. C. Osores "
-				speaker4="Dr. F. Maluenda "
-				cargo1="Chile"
-				cargo2="Chile"
-				cargo3="Chile"
-				cargo4="Chile"
-				cargo5="Chile"
+				speaker2="Dr. R. Valenzuela "
+				speaker3="Dr. C. Opazo"
+				speaker4="Dr. C. Osores "
+				speaker5="Dr. F. Maluenda "
+				cargo1="Especialista en Medicina de Urgencia
+Jefe de Pregrado, Profesor Asistente UC"
+				imgSpeaker1={oscar}
+				cargo2="Médico de Emergencias en Stony Brook, NY 
+Profesor Clínico Asistente de Medicina de Emergencia, División de Medicina Internacional de Emergencia, Desarrollo de sistemas de trauma, Desarrollo de registros de trauma, Desarrollo de EM en sistemas de salud, medicina tropical"
+				imgSpeaker2={rolando}
+				cargo3="Médico Urgenciólogo titulado UC, 
+ instructor adjunto, Coordinador CASR"
+				imgSpeaker3={cristo}
+				cargo4="Becado Medicina de Urgencia
+Pontificia Universidad Católica de Chile"
+				imgSpeaker4={cristian}
+				cargo5="Jefe Servicio de Urgencia Clínica San Carlos de Apoquindo UC Christus
+Instructor Adjunto UC"
+				imgSpeaker5={felipem}
 			/>
 
 
@@ -185,10 +184,17 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="10:30"
 				fin="10:45"
 				tematica="Twitterología - Los beneficios VS peligros de las RRSS"
-				speaker="Dr. Hans Clausdorff "
-				speaker2="Dr. Óscar Navea"
-				cargo3="Chile"
-				cargo2="Chile"
+				speaker2="Dr. Hans Clausdorff "
+				speaker3="Dr. Óscar Navea"
+				cargo3="Especialista en Medicina de Urgencia
+Jefe de Pregrado, Profesor Asistente UC
+"
+				cargo2="Miembro Comité de Postgrado Sección Medicina de Urgencia
+Magister Educación ©
+				
+"
+				imgSpeaker2={hans}
+				imgSpeaker3={oscar}
 			/>
 
 			<RowSpeaker
@@ -200,8 +206,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="10:45"
 				fin="11:00"
 				tematica="Mitos en COVID19: Aerosoles y VA"
-				speaker="Dr. Allan Mix "
-				cargo2="Chile"
+				speaker2="Dr. Allan Mix "
+				cargo2="Instructor adj urgencia UC
+Jefe servicio Medicina de urg Féliz Bulnes"
+				imgSpeaker2={allan}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -212,22 +220,13 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="11:00"
 				fin="11:15"
 				tematica="Cómo generar contenido educativo en el mundo digital?"
-				speaker="Dr. Carlos Basaure"
-				cargo2="Chile"
+				speaker2="Dr. Carlos Basaure"
+				cargo2="Especialista en Medicina de Urgencia, Jefe de Programa de Postítulo
+Profesor Asistente, Hospital Sotero del Río - Marcoleta, Fellow en Ultrasonido Clínico – University of California Los Ángeles (UCLA)"
+				imgSpeaker2={carlos}
 			/>
 
-			<RowSpeaker
-				setSaveData={setSaveData}
-				abrirCerrar={abrirCerrar}
-				state={state}
-				id={38}
-				grey="grey"
-				inicio="11:00"
-				fin="11:15"
-				tematica="Cómo generar contenido educativo en el mundo digital?"
-				speaker="Dr. Carlos Basaure"
-				cargo2="Chile"
-			/>
+			
 			<RowSpeaker
 				setSaveData={setSaveData}
 				abrirCerrar={abrirCerrar}
@@ -237,10 +236,17 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="11:15"
 				fin="11:30"
 				tematica="Responsabilidad y Ética en RRSS en la era de las funas"
-				speaker="Dr. Cristopher Polma "
-				speaker2="Dr. Leonidas Rojas"
-				cargo3="Chile"
-				cargo2="Chile"
+				speaker2="Dr. Cristopher Polma "
+				speaker3="Dr. Leonidas Rojas"
+				cargo2="Urgenciólogo egresado del programa de medicina de urgencia de la universidad San Sebastián.
+Actualmente jefe técnico del servicio de Urgencia del Hospital Las Higueras.
+Docente colaborador de la universidad de Concepción"
+				cargo3="Urgenciólogo egresado del programa de medicina de urgencia de la universidad San Sebastián.
+Médico de urgencia del hospital de Curicó
+Diplomado en ética, filosofía y medicina basada en la evidencia.
+Docente del programa de medicina de urgencia de la Universidad Autónoma de Chile, sede Talca."
+				imgSpeaker2={drpo}
+				
 			/>
 
 			<RowSpeaker
@@ -263,8 +269,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="11:35"
 				fin="11:50"
 				tematica="Doctor, hace 1 semana tuve mi quimio…"
-				speaker="Dr. Mikel Urquiza "
-				cargo2="Chile"
+				speaker2="Dr. Mikel Urquiza "
+				cargo2="Miembro del Comité de Postgrado en Medicina de Urgencia 
+				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021"
+				imgSpeaker2={mikel}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -275,8 +283,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="11:50"
 				fin="12:10"
 				tematica="Paciente con Cáncer Grave: Emergencias oncológicas metabólicas"
-				speaker="Dr. Óscar Navea "
-				cargo2="Chile"
+				speaker2="Dr. Óscar Navea "
+				cargo2="Especialista en Medicina de Urgencia
+Jefe de Pregrado, Profesor Asistente UC"
+				imgSpeaker2={oscar}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -287,8 +297,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="12:10"
 				fin="12:20"
 				tematica="Sedación Paliativa en urgencia, nuestra responsabilidad"
-				speaker="Dra. María Paz Soto "
-				cargo2="Chile"
+				speaker2="Dra. María Paz Soto "
+				cargo2="Médico de Urgencia BUPA
+Instructor adjunto UC"
+				imgSpeaker2={maria}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -299,8 +311,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="12:20"
 				fin="12:30"
 				tematica="💩, tiene Cáncer: entregando malas noticias"
-				speaker="Dr. Renato Varela"
-				cargo2="Chile"
+				speaker2="Dr. Renato Varela"
+				cargo2="Medico Jefe Servicio de Urgencia Clínica Alemana de Valdivia. 
+Servicio de Salud Valdivia Pontificia Universidad Católica de Chile. "
+				imgSpeaker2={renato}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -311,8 +325,9 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="12:30"
 				fin="13:00"
 				tematica="Voluntad anticipada y ajuste de esfuerzo terapéutico"
-				speaker="Dra. Carolina Aguilera"
-				cargo2="Chile"
+				speaker2="Dra. Carolina Aguilera"
+				cargo2="Medicina de Urgencia Hospital Sótero del Río"
+				imgSpeaker2={carolina}
 			/>
 
 			<div className="break">
@@ -343,8 +358,11 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="14:40"
 				fin="15:00"
 				tematica="Enfrentamiento al niño politraumatizado"
-				speaker="Dr. Daniel Ridelman"
-				cargo2="Chile"
+				speaker2="Dr. Daniel Ridelman"
+				cargo2="Especialista en Medicina de Emergencia, Detroit Medical Center.
+Profesor Clínico Asistente Universidad de Wayne State
+Fundador y Profesor asistente de la subespecialidad de Medicina de Emergencia Internacional, Universidad de Wayne State."
+				imgSpeaker2={daniel}
 			/>
 
 			<RowSpeaker
@@ -356,10 +374,14 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="15:00"
 				fin="15:10"
 				tematica="Decisiones de Vía Aérea en el Niño "
-				speaker="Dra. Viera Morales "
-				cargo2="Chile"
-				speaker2="Dr. Christian Scheu"
-				cargo3="Chile"
+				speaker2="Dra. Viera Morales "
+				cargo2="Jefe de Red de Urgencia UC- Christus Health. Instructor Adjunto.
+ Jefa de urgencia Pediátrica Hospital Clínico UC"
+				speaker3="Dr. Christian Scheu"
+				cargo3="Pediatra, Intensivista, Jefe de Programa Medicina Intensiva Pediátrica UC, Profesor Asistente de Pediatría, Director Programa PALS UC
+Miembro Comité de Postgrado Pediatría, PUC."
+				imgSpeaker2={viera}
+				imgSpeaker3={cristians}
 			/>
 
 			<RowSpeaker
@@ -371,10 +393,13 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="15:10"
 				fin="15:20"
 				tematica="e-FAST en Niños "
-				speaker="Dra. Sofía Rivera  "
-				cargo2="Chile"
-				speaker2="Dr. Felipe Riquelme"
-				cargo3="Chile"
+				speaker2="Dra. Sofía Rivera  "
+				cargo2="Residente Becada Medicina de Urgencia
+Pontificia Universidad Católica de Chile"
+				speaker3="Dr. Felipe Riquelme"
+				cargo3="Medicina de Urgencia UC."
+				imgSpeaker2={sofiar}
+				imgSpeaker3={felipe}
 			/>
 
 			<RowSpeaker
@@ -386,10 +411,13 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="15:20"
 				fin="15:40"
 				tematica="Fracturas en Niños - ¿Cuándo derivar y hospitalizar?"
-				speaker="Dr. Ismael Cañete  "
-				cargo2="Chile"
-				speaker2="Dr. Mikel Urquiza"
-				cargo3="Chile"
+				speaker2="Dr. Ismael Cañete  "
+				cargo2="Médico Universidad de la Frontera y postgrado de Ortopedia y Traumatología UC, donde también realizó su Fellowship en Ortopedia y Traumatología Infantil. "
+				speaker3="Dr. Mikel Urquiza"
+				cargo3="Miembro del Comité de Postgrado en Medicina de Urgencia 
+de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021"
+				imgSpeaker2={ismael}
+				imgSpeaker3={mikel}
 			/>
 
 			<div className="break">
@@ -410,15 +438,29 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="16:00"
 				fin="16:30"
 				tematica="Mesa redonda"
-				speaker="D. Ridelman   "
-				cargo2="Chile"
-				speaker2="C. Scheu "
-				cargo3="Chile"
-				speaker3="F. Riquelme "
-				cargo4="Chile"
-				speaker4="Dr. I.Cañete"
+				speaker2="D. Ridelman   "
+				cargo2="Especialista en Medicina de Emergencia, Detroit Medical Center.
+Profesor Clínico Asistente Universidad de Wayne State
+Fundador y Profesor asistente de la subespecialidad de Medicina de Emergencia Internacional, Universidad de Wayne State."
+				imgSpeaker2={daniel}
+				speaker3="C. Scheu "
+				cargo3="Pediatra, Intensivista, Jefe de Programa Medicina Intensiva Pediátrica UC, Profesor Asistente de Pediatría, Director Programa PALS UC
+Miembro Comité de Postgrado Pediatría, PUC."
+				imgSpeaker3={cristians}
+				speaker4="F. Riquelme "
+				cargo4="Fellow ultrsonido clínico   Urgenciólogo  UC"
+				imgSpeaker4={felipe}
+		
+				speaker5="Dr. I.Cañete"
+				cargo5="Médico Universidad de la Frontera y postgrado de Ortopedia y Traumatología UC, donde también realizó su Fellowship en Ortopedia y Traumatología Infantil."
+				imgSpeaker5={ismael}
+
+
 				moderador="Dra. Viera Morales"
-				cargo="Chile"
+				cargo1="Jefe de Red de Urgencia UC- Christus Health. Instructor Adjunto.
+ Jefa de urgencia Pediátrica Hospital Clínico UC"
+				imgSpeaker1={viera}
+		
 			/>
 
 			<RowSpeaker
@@ -430,8 +472,9 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="16:30"
 				fin="16:50"
 				tematica="Reflexiones desde la Urgencia:  ¿Cuál es el futuro de la Medicina de Urgencia?"
-				speaker="Dr. Pablo Aguilera F.  "
-				cargo2="Chile"
+				speaker2="Dr. Pablo Aguilera F.  "
+				cargo2="Especialista en Medicina de Urgencia"
+				imgSpeaker2={pablo}
 				
 			/>
 			<RowSpeaker
@@ -443,8 +486,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="16:50"
 				fin="17:00"
 				tematica="Micrófono Abierto desde México"
-				speaker="Dr. Ricardo Bañuelos"
-				cargo2="Chile"
+				speaker2="Dr. Ricardo Bañuelos"
+				cargo2="Especialista en Medicina de Emergencias Hospital de Traumatología y Ortopedia Dr. y Gral. Rafael Moreno Valle.
+Adscrito al servicio de Urgencias en Instituto Mexicano del Seguro Social"
+				imgSpeaker2={ricardo}
 				
 			/>
 			<RowSpeaker
