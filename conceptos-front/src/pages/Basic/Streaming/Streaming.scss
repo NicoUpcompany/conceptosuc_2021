@@ -3,6 +3,31 @@
 	float: left;
 	width: 100%;
 	//Footer
+
+	.header{
+		background-color: #247ce0;
+		margin-bottom: 0;
+		display: flex;
+		height: 10vh;
+		justify-content: center;
+		align-items: center;
+		.logo{
+			width: 90%;
+			height: 100%;
+			padding: 10px 0;
+			align-items: center;
+		}
+		h1{
+			color: white;
+			margin: 0;
+			font-family: 'Lato';
+			font-size: 32px;
+		}
+
+		span{
+			color: yellow;
+		}
+	}
 	.footer2{
 		background-image: url('../../../assets/images/stand/fondo.png');
 		background-size: cover;
@@ -40,7 +65,7 @@
 		
 		.contenedor-streaming{
 			width: 90%;
-			padding: 20px 0 100px 0;
+			padding: 10px 0 100px 0;
 			
 		}
 	}
@@ -141,9 +166,9 @@
 			iframe {
 				float: left;
 				width: 100%;
-				max-height: 2000px !important;
-				min-height: 100px !important;
-				height: calc(100vh);
+				// max-height: 2000px !important;
+				// min-height: 100px !important;
+				height: calc(85vh);
 			}
 
 			.scroll {
@@ -349,6 +374,42 @@
 			}
 		}
 	}
+}
+
+.container-auspiciadores{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	height: 30vh;
+	margin-top: 50px;
+
+	.auspciadores{
+		width: 90%;
+		display: flex;
+		justify-content: space-evenly;
+		.bi{
+			height: 100%;
+		}
+
+		.bio{
+			height: 100%;
+		}
+	}
+}
+
+.franja{
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	padding: 16px;
+	background-color: #016db6;
+	margin-top: 100px;
+	h4{
+		font-size: 16px;
+		color: #FFF;
+		font-family: 'Lato';
+	}
+
 }
 
 .contacto {
@@ -687,15 +748,16 @@
 	display: none !important;
 }
 .css-1s8w8rq {
-	height: calc(100vh - 40px) !important;
+	height: calc(85vh) !important;
 	// border: 1px solid #e2d105 !important;
 	border-radius: 8px !important;
 	overflow: hidden;
+	border: 1px solid #247ce0 !important;
 }
 .css-1u3hi2d{
 	height: calc(100vh - 40px) !important;
 	background: transparent !important;
-	padding: 20px !important;
+	padding-left: 15px !important;
 	// display: none;
 }
 
@@ -787,7 +849,7 @@
 	padding: 0 !important;
 	min-height: auto !important;
 	border-radius: 8px;
-	border: 0.5px solid #247ce0
+	border-top: 0.5px solid #247ce0
 }
 .css-bouy5f {
 	fill: black !important;

@@ -41,7 +41,7 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				<div className="plenario">
 					<p>Plenario</p>
 				</div>
-			q	{/* <Link
+				{/* <Link
 					className='btn2'
 					to='/sala2'
 				>VER CURSO AQUÍ</Link> */}

@@ -39,10 +39,11 @@ import cerrar from "../../../assets/img/cerrar.svg";
 import footerRegistro from "../../../assets/images/footer-cognitiva.jpg";
 import logo1 from "../../../assets/images/1.png";
 // import logo2 from "../../../assets/images/2.png";
-import logo2 from '../../../assets/images/stand/logo.png';
-import banner from '../../../assets/images/stand/banner.png';
-import logoAsic from '../../../assets/images/logoAsic.png'
-import logoCopeuch from '../../../assets/images/LogoCopeuch.png'
+import bi from '../../../assets/images/bi.png';
+import bio from '../../../assets/images/biome.jpg';
+import uc from '../../../assets/images/uc.jpg';
+import mass from '../../../assets/images/mass.png';
+
 
 import "./Streaming.scss";
 import { Question } from "../../../components/Basic/Question/Question";
@@ -850,6 +851,13 @@ const Streaming = () => {
 			indicator={antIcon}
 		>
 			<div className="fondo">
+				<div className='header'>
+					<div className="logo">
+						<h1>CONCEPTOS
+							<span> UC</span>
+						</h1>
+					</div>
+				</div>
 				<div className="contenedorStreaming">
 					<div className='contenedor-streaming'>
 						<div className="col1">
@@ -890,41 +898,6 @@ const Streaming = () => {
 						onChange={onChange}
 						questionInput={questionInput}
 					/>
-					{/* {pollData.map((item, i) => {
-						return (
-							<>
-								{item.poll.active ? (
-									<div className="contenedor" key={i}>
-										<div className="titulo">
-											<h2>{item.poll.question}</h2>
-										</div>
-										<div className="poll">
-											{item.options.map((element, j) => {
-												return (
-													<div
-														className="col-poll"
-														key={j}
-													>
-														<button
-															className="option"
-															onClick={() =>
-																answerQuestion(
-																	item.poll,
-																	element
-																)
-															}
-														>
-															{element.option}
-														</button>
-													</div>
-												);
-											})}
-										</div>
-									</div>
-								) : null}
-							</>
-						);
-					})} */}
 				</Spin>
 
 				{config.stand ? (
@@ -953,6 +926,44 @@ const Streaming = () => {
 						})}
 				</div>
 			) : null}
+
+			<div className="franja">
+
+				<h4>AUSPCIAN:</h4>
+			</div>
+
+			<div className="container-auspiciadores">
+				<div className="auspciadores">
+					<img
+						src={bi}
+						className="bi"
+					/>
+
+					<img
+						src={bio}
+						className="bio"
+					/>
+				</div>
+			</div>
+
+			<div className="franja">
+				<h4>ORGANIZA:</h4>
+			</div>
+
+			<div className="container-auspiciadores" >
+				<div className="auspciadores" style={{paddingBottom:'20px'}}>
+					<img
+						src={uc}
+						className="bi"
+					/>
+
+					<img
+						src={mass
+						}
+						className="bio"
+					/>
+				</div>
+			</div>
 
 		</Spin>
 	);
