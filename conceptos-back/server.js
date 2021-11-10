@@ -17,6 +17,8 @@ const io = require("socket.io")(server, {
 		origin: "*",
 	},
 });
+//Agenda día 1 
+const agenda1 = require('./agenda1');
 
 let agendaStatus = false;
 let agendaStatusAux = true;
@@ -437,7 +439,7 @@ io.on("connection", (socket) => {
 
 // Día 1
 const agendaDateStartAux = momentTimezone.tz(
-	"2021-11-10T17:00:00",
+	"2021-11-10T17:24:00",
 	"America/Santiago"
   );
 
@@ -469,6 +471,30 @@ const finalDate2 = moment(date2).format();
 
 // Día 1
 //#region
+
+for (let index = 0; index < agenda1.length; index++) {
+
+	let d = schedule.scheduleJob(agenda1[index].finalDate, function () {
+	
+		console.log('Se activo el ' + agenda1[index].finalDate);
+		const userAgenda = new UserAgenda();
+		userAgenda.day = 12;
+		userAgenda.title = agenda1[index].title;
+		userAgenda.hour = agenda1[index].hour;
+		userAgenda.hourEnd = agenda1[index].hourEnd;
+		userAgenda.users = agendaArray;
+		userAgenda.peakCount = peak.count;
+		userAgenda.peakTime = peak.time;
+		userAgenda.method = "Automatic";
+		userAgenda.save((err, userAgendaStored) => {});
+		agendaArray = users;
+		peak = {
+		  time: null,
+		  count: 0,
+		};
+	  });
+}
+
 const d1 = schedule.scheduleJob(finalDate1, function () {
 	const userAgenda = new UserAgenda();
 	userAgenda.day = 10;
