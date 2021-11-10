@@ -19,6 +19,7 @@ const io = require("socket.io")(server, {
 });
 //Agenda día 1 
 const agenda1 = require('./agenda1');
+const agenda2 = require('./agenda2');
 
 let agendaStatus = false;
 let agendaStatusAux = true;
@@ -464,13 +465,10 @@ const activeAgendaStart = schedule.scheduleJob(agendaDateStart, function () {
 
   // Día 1
 //#region
-const date1 = momentTimezone.tz("2021-11-10T17:10:00", "America/Santiago");
-const finalDate1 = moment(date1).format();
-const date2 = momentTimezone.tz("2021-11-10T10:54:00", "America/Santiago");
-const finalDate2 = moment(date2).format();
+// const date1 = momentTimezone.tz("2021-11-10T17:10:00", "America/Santiago");
+// const finalDate1 = moment(date1).format();
 
 // Día 1
-//#region
 
 for (let index = 0; index < agenda1.length; index++) {
 
@@ -495,41 +493,50 @@ for (let index = 0; index < agenda1.length; index++) {
 	  });
 }
 
-const d1 = schedule.scheduleJob(finalDate1, function () {
-	const userAgenda = new UserAgenda();
-	userAgenda.day = 10;
-	userAgenda.title = "Prueba QA";
-	userAgenda.hour = "17:10";
-	userAgenda.hourEnd = "17:20";
-	userAgenda.users = agendaArray;
-	userAgenda.peakCount = peak.count;
-	userAgenda.peakTime = peak.time;
-	userAgenda.method = "Automatic";
-	userAgenda.save((err, userAgendaStored) => {});
-	agendaArray = users;
-	peak = {
-	  time: null,
-	  count: 0,
-	};
-  });
-const d2 = schedule.scheduleJob(finalDate2, function () {
-	console.log('Entro aquí 2 ');
-	const userAgenda = new UserAgenda();
-	userAgenda.day = 20;
-	userAgenda.title = "Charla cualquiera";
-	userAgenda.hour = "11:55";
-	userAgenda.hourEnd = "12:00";
-	userAgenda.users = agendaArray;
-	userAgenda.peakCount = peak.count;
-	userAgenda.peakTime = peak.time;
-	userAgenda.method = "Automatic";
-	userAgenda.save((err, userAgendaStored) => {});
-	agendaArray = users;
-	peak = {
-	  time: null,
-	  count: 0,
-	};
-  });
+//Día 2
+for (let index2 = 0; index2 < agenda2.length; index2++) {
+
+	let d2 = schedule.scheduleJob(agenda2[index2].finalDate, function () {
+	
+		console.log('Se activo el ' + agenda1[index2].finalDate);
+		const userAgenda = new UserAgenda();
+		userAgenda.day = 13;
+		userAgenda.title = agenda2[index2].title;
+		userAgenda.hour = agenda2[index2].hour;
+		userAgenda.hourEnd = agenda2[index2].hourEnd;
+		userAgenda.users = agendaArray;
+		userAgenda.peakCount = peak.count;
+		userAgenda.peakTime = peak.time;
+		userAgenda.method = "Automatic";
+		userAgenda.save((err, userAgendaStored) => {});
+		agendaArray = users;
+		peak = {
+		  time: null,
+		  count: 0,
+		};
+	  });
+}
+
+
+
+// const d2 = schedule.scheduleJob(finalDate2, function () {
+// 	console.log('Entro aquí 2 ');
+// 	const userAgenda = new UserAgenda();
+// 	userAgenda.day = 20;
+// 	userAgenda.title = "Charla cualquiera";
+// 	userAgenda.hour = "11:55";
+// 	userAgenda.hourEnd = "12:00";
+// 	userAgenda.users = agendaArray;
+// 	userAgenda.peakCount = peak.count;
+// 	userAgenda.peakTime = peak.time;
+// 	userAgenda.method = "Automatic";
+// 	userAgenda.save((err, userAgendaStored) => {});
+// 	agendaArray = users;
+// 	peak = {
+// 	  time: null,
+// 	  count: 0,
+// 	};
+//   });
 
 
 const port = process.env.PORT || 8080;
