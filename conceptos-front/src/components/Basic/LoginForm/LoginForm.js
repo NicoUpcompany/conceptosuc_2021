@@ -271,6 +271,16 @@ const LoginForm = (props) => {
 					Ingresar
 				</button>
 			</div>
+			<div className="campobutton">
+				<a
+					href='https://massoeventos.com/conceptos-global-2021-medicina-de-urgencia-desde-chile-para-el-mundo'
+					target='_blank'
+					className="btn"
+					style={{ border: "transparent", cursor: "pointer", fontSize:'16px', color:'#247ce0' }}
+				>
+					Aún no compro mi entrada
+				</a>
+			</div>
 			{/* <a onClick={() => setSaveData(1)} className="enlace">
 				Aún no estoy registrado
 			</a> */}
