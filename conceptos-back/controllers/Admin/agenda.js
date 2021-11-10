@@ -10,7 +10,8 @@ const Expositor = require("../../models/Admin/expositor");
 
 //TODO: CAMBIAR IP DEL SOCKET
 
-const socket = io("https://conceptosuc2021.upwebinar.cl/");
+// const socket = io("https://conceptosuc2021.upwebinar.cl/");
+const socket = io("http://localhost:8080/");
 
 function saveAgenda(req, res) {
 	const agenda = new Agenda();

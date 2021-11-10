@@ -62,3 +62,13 @@
 	margin-top: 20px;
 	text-decoration: underline;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 790px) {
+
+	.campobutton {	
+		a{
+			font-size: 13px !important;
+		}
+
+	}
+}

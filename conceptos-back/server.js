@@ -301,6 +301,8 @@ rule.minute = new schedule.Range(0, 59, 5);
 
 io.on("connection", (socket) => {
 	socket.on("NEW_USER", (user) => {
+
+	console.log('Nuevo usuario Conectado');
 	  try {
 		const newUser = {
 		  id: socket.id,
@@ -387,6 +389,7 @@ io.on("connection", (socket) => {
 	  try {
 		const index = users.findIndex((element) => element.id === socket.id);
 		if (index >= 0) {
+		  console.log('Usuario desconectado');
 		  const realTime = new RealTime();
 		  realTime.user = users[index].userId;
 		  realTime.flagIcon = users[index].flagIcon;
@@ -434,42 +437,44 @@ io.on("connection", (socket) => {
 
 // Día 1
 const agendaDateStartAux = momentTimezone.tz(
-	"2021-11-09T19:30:00",
+	"2021-11-10T17:00:00",
 	"America/Santiago"
   );
 
 const agendaDateStart = moment(agendaDateStartAux).format()
 const activeAgendaStart = schedule.scheduleJob(agendaDateStart, function () {
+	console.log('Inicio la agenda');
+	console.log(users);
 	agendaArray = users;
 	agendaStatus = true;
   });
 
   const agendaDateEndAux = momentTimezone.tz(
-	"2021-11-09T20:15:00",
+	"2021-11-10T11:55:00",
 	"America/Santiago"
   );
   const agendaDateEnd = moment(agendaDateEndAux).format();
   const activeAgendaEnd = schedule.scheduleJob(agendaDateEnd, function () {
+	console.log(users);
 	agendaArray = [];
 	agendaStatus = false;
   });
 
   // Día 1
 //#region
-const date1 = momentTimezone.tz("2021-11-09T19:30:00", "America/Santiago");
+const date1 = momentTimezone.tz("2021-11-10T17:10:00", "America/Santiago");
 const finalDate1 = moment(date1).format();
-const date2 = momentTimezone.tz("2021-11-09T19:35:00", "America/Santiago");
+const date2 = momentTimezone.tz("2021-11-10T10:54:00", "America/Santiago");
 const finalDate2 = moment(date2).format();
 
 // Día 1
 //#region
 const d1 = schedule.scheduleJob(finalDate1, function () {
-	console.log('Entro aquí ');
 	const userAgenda = new UserAgenda();
-	userAgenda.day = 20;
-	userAgenda.title = "Panel de Apertura";
-	userAgenda.hour = "19:30";
-	userAgenda.hourEnd = "19:35";
+	userAgenda.day = 10;
+	userAgenda.title = "Prueba QA";
+	userAgenda.hour = "17:10";
+	userAgenda.hourEnd = "17:20";
 	userAgenda.users = agendaArray;
 	userAgenda.peakCount = peak.count;
 	userAgenda.peakTime = peak.time;
@@ -485,9 +490,9 @@ const d2 = schedule.scheduleJob(finalDate2, function () {
 	console.log('Entro aquí 2 ');
 	const userAgenda = new UserAgenda();
 	userAgenda.day = 20;
-	userAgenda.title = "Panel de Apertura";
-	userAgenda.hour = "19:35";
-	userAgenda.hourEnd = "19:40";
+	userAgenda.title = "Charla cualquiera";
+	userAgenda.hour = "11:55";
+	userAgenda.hourEnd = "12:00";
 	userAgenda.users = agendaArray;
 	userAgenda.peakCount = peak.count;
 	userAgenda.peakTime = peak.time;

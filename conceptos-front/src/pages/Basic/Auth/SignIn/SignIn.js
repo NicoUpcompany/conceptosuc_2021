@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import moment from "moment";
 import banner from '../../../../assets/images/banner.jpg';
+import banner2 from '../../../../assets/images/banner2.jpg';
 import escuela from '../../../../assets/images/escuela.jpg';
 
 import { getTime } from "../../../../api/time";
@@ -308,6 +309,12 @@ const SignIn = () => {
 					<div className="img-left">
 						<img
 							src={banner}
+							className='desktop'
+						/>
+
+						<img
+							src={banner2}
+							className='movil'
 						/>
 					</div>
 					<div className="contenedorRegistro">

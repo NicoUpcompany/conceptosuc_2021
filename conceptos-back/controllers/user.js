@@ -123,8 +123,6 @@ function signUp(req, res) {
 	const user = new User();
 	let { email } = req.body;
 
-	console.log(user)
-
 	// user.email = email.toString().toLowerCase();
 
 	email = email.toString().toLowerCase();
@@ -132,7 +130,6 @@ function signUp(req, res) {
 	const signInTime = moment().subtract(4, "hours").format("LLL");
 
 	 User.findOne({ email }, (err, userStored) => {
-		console.log(userStored)
 		if (err) {
 			res.status(500).send({ ok: false, message: "Error del servidor" });
 		} else {

@@ -26,9 +26,7 @@ import tomas from '../../../assets/expo/tomas.jpg';
 import felipe from '../../../assets/expo/felipe.png';
 import carlos from '../../../assets/expo/carlos.png';
 import hans from '../../../assets/expo/hand.png';
-
-
-
+import ricardo2 from '../../../assets/expo/ricardo.jpeg';
 
 
 const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
@@ -53,8 +51,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={1}
 				grey="grey"
-				inicio="08:20"
-				fin="08:30"
+				inicio="08:30"
+				fin="08:35"
 				tematica="Bienvenida"
 				moderador="Dr. Mikel Urquiza"
 				speaker2="Dr. Alonso Miguel"
@@ -73,8 +71,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={2}
 				grey=""
-				inicio="08:30"
-				fin="08:35"
+				inicio="08:35"
+				fin="08:55"
 				tematica="Consejos simples para mejorar el manejo del PCR "
 				speaker2="Dr. Ricardo Bañuelos, México"
 				imgSpeaker2={ricardo}
@@ -89,8 +87,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={3}
 				grey="grey"
-				inicio="08:35"
-				fin="08:55"
+				inicio="08:55"
+				fin="09:10"
 				tematica="Trombolisis en PCR: ¿Cuándo, cómo y por qué?"
 				speaker2="Dr. Alonso Miguel"
 				imgSpeaker2={alonso}
@@ -105,8 +103,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={4}
 				grey=""
-				inicio="08:55"
-				fin="09:10"
+				inicio="09:10"
+				fin="09:20"
 				tematica="¿Salina o balanceadas?, fluidos en la reanimación"
 				speaker2="Dr. Wilfredo Gómez, Costa Rica"
 				cargo2="Médico Especialista en Medicina de Urgencia
@@ -120,8 +118,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={5}
 				grey="grey"
-				inicio="09:10"
-				fin="09:20"
+				inicio="09:20"
+				fin="09:30"
 				tematica="Reanimando al Agente Topo"
 				speaker2="Dr. Óscar Navea"
 				cargo2="Especialista en Medicina de Urgencia
@@ -131,7 +129,7 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 
 			<div className="break">
 				<div className="tiempo">
-					<FreeBreakfastIcon className="caffe" /> <span>Coffee Break</span>
+					<FreeBreakfastIcon className="caffe" /> <span>Break - Receso</span>
 				</div>
 				<div className="duracion">
 					<p>09:30 - 09:50 hrs</p>
@@ -144,8 +142,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={6}
 				grey=""
-				inicio="09:20"
-				fin="09:50"
+				inicio="09:50"
+				fin="10:20"
 				tematica="Mesa redonda"
 				moderador="Dr. Mikel Urquiza"
 				cargo1="Miembro del Comité de Postgrado en Medicina de Urgencia 
@@ -178,8 +176,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={7}
 				grey="grey"
-				inicio="09:50"
-				fin="10:20"
+				inicio="10:20"
+				fin="10:25"
 				tematica="Intervención"
 
 			/>
@@ -190,8 +188,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={8}
 				grey=""
-				inicio="10:20"
-				fin="10:25"
+				inicio="10:25"
+				fin="10:35"
 				tematica="Sociedades de Urgencia - Impacto en manejo de la pandemia"
 				speaker2="Dr. Luis Enberg"
 				cargo2="Especialista en Medicina de Urgencia
@@ -206,8 +204,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={9}
 				grey="grey"
-				inicio="10:25"
-				fin="10:35"
+				inicio="10:35"
+				fin="10:45"
 				tematica="Salud Mental y Personal de Urgencia"
 				speaker2="Dr. José Miguel Vargas"
 				cargo2="ChileEspecialista de Medicina de Urgencia
@@ -221,8 +219,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={10}
 				grey=""
-				inicio="10:35"
-				fin="10:45"
+				inicio="10:45"
+				fin="11:00"
 				tematica="Avalancha de Papers - ¿Cómo elijo y sobrevivo?"
 				speaker2="Dra. Bárbara Lara"
 				cargo2="Especialista en Medicina de Urgencia
@@ -237,8 +235,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={11}
 				grey="grey"
-				inicio="10:45"
-				fin="11:00"
+				inicio="11:00"
+				fin="11:15"
 				tematica="Tratamientos que si sirven en COVID-19"
 				speaker2="Dra. Daniela Santander "
 				speaker3="Dr. Mikel Urquiza"
@@ -257,8 +255,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={12}
 				grey=""
-				inicio="11:00"
-				fin="11:15"
+				inicio="11:15"
+				fin="11:30"
 				tematica="Docencia Bedside y COVID19"
 				speaker2="Dra. Sofía Basauri"
 				cargo2="Médico especialista en Medicina de Urgencia
@@ -330,6 +328,10 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				Instructor adjunto Sección Urgencia UC, Equipo de Simulación UC
 				"
 				imgSpeaker2={ludwin}
+				speaker3="Dr. Ricardo Alvarado"
+				cargo3="Becado Medicina de Urgencia
+				Pontificia Universidad Católica de Chile"
+				imgSpeaker3={ricardo2}
 			/>
 			
 			<RowSpeaker

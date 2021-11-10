@@ -877,7 +877,7 @@ const Streaming = () => {
 							</div>
 						</div>
 						<div className="col2">
-							{config.networking && !isSafari && !isMobileSafari ? (
+							{config.networking && !isSafari && !isMobileSafari && !isMobile ?  (
 								<CometChatUnified />
 							) : null}
 						</div>

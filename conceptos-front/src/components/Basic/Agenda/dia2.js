@@ -48,9 +48,9 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				abrirCerrar={abrirCerrar}
 				state={state}
 				id={29}
-				grey="grey"
-				inicio="08:30"
-				fin="08:35"
+				grey=""
+				inicio="08:10"
+				fin="08:15"
 				tematica="Bienvenida"
 				moderador="Dr. Mikel Urquiza"
 				speaker2="Dr. Alonso Miguel"
@@ -61,6 +61,19 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				Instructor en Simulación – IMS"
 				imgSpeaker1={mikel}
 				imgSpeaker2={alonso}
+			/>
+
+			<RowSpeaker
+				setSaveData={setSaveData}
+				abrirCerrar={abrirCerrar}
+				state={state}
+				id={51}
+				grey="grey"
+				inicio="08:15"
+				fin="08:35"
+				tematica="Reflexiones desde la Urgencia: ¿Cuál es el futuro de la medicina de urgencia?"
+				speaker2="Dr. Pablo Aguilera"
+ 				imgSpeaker2={pablo}
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -139,8 +152,8 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={34}
 				grey=""
-				inicio="09:30"
-				fin="09:50"
+				inicio="09:50"
+				fin="10:20"
 				tematica="Mesa redonda"
 				moderador="Dr. Óscar Navea"
 				speaker2="Dr. R. Valenzuela "
@@ -148,19 +161,19 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				speaker4="Dr. C. Osores "
 				speaker5="Dr. F. Maluenda "
 				cargo1="Especialista en Medicina de Urgencia
-Jefe de Pregrado, Profesor Asistente UC"
+				Jefe de Pregrado, Profesor Asistente UC"
 				imgSpeaker1={oscar}
 				cargo2="Médico de Emergencias en Stony Brook, NY 
-Profesor Clínico Asistente de Medicina de Emergencia, División de Medicina Internacional de Emergencia, Desarrollo de sistemas de trauma, Desarrollo de registros de trauma, Desarrollo de EM en sistemas de salud, medicina tropical"
+				Profesor Clínico Asistente de Medicina de Emergencia, División de Medicina Internacional de Emergencia, Desarrollo de sistemas de trauma, Desarrollo de registros de trauma, Desarrollo de EM en sistemas de salud, medicina tropical"
 				imgSpeaker2={rolando}
 				cargo3="Médico Urgenciólogo titulado UC, 
- instructor adjunto, Coordinador CASR"
+ 				instructor adjunto, Coordinador CASR"
 				imgSpeaker3={cristo}
 				cargo4="Becado Medicina de Urgencia
-Pontificia Universidad Católica de Chile"
+				Pontificia Universidad Católica de Chile"
 				imgSpeaker4={cristian}
 				cargo5="Jefe Servicio de Urgencia Clínica San Carlos de Apoquindo UC Christus
-Instructor Adjunto UC"
+				Instructor Adjunto UC"
 				imgSpeaker5={felipem}
 			/>
 
@@ -187,12 +200,10 @@ Instructor Adjunto UC"
 				speaker2="Dr. Hans Clausdorff "
 				speaker3="Dr. Óscar Navea"
 				cargo3="Especialista en Medicina de Urgencia
-Jefe de Pregrado, Profesor Asistente UC
-"
+				Jefe de Pregrado, Profesor Asistente UC
+				"
 				cargo2="Miembro Comité de Postgrado Sección Medicina de Urgencia
-Magister Educación ©
-				
-"
+				Magister Educación ©"
 				imgSpeaker2={hans}
 				imgSpeaker3={oscar}
 			/>
@@ -226,7 +237,7 @@ Profesor Asistente, Hospital Sotero del Río - Marcoleta, Fellow en Ultrasonido 
 				imgSpeaker2={carlos}
 			/>
 
-			
+
 			<RowSpeaker
 				setSaveData={setSaveData}
 				abrirCerrar={abrirCerrar}
@@ -246,7 +257,7 @@ Médico de urgencia del hospital de Curicó
 Diplomado en ética, filosofía y medicina basada en la evidencia.
 Docente del programa de medicina de urgencia de la Universidad Autónoma de Chile, sede Talca."
 				imgSpeaker2={drpo}
-				
+
 			/>
 
 			<RowSpeaker
@@ -347,7 +358,7 @@ Servicio de Salud Valdivia Pontificia Universidad Católica de Chile. "
 				grey="grey"
 				inicio="14:30"
 				fin="14:40"
-				tematica="Receso"
+				tematica="Intervención"
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -450,7 +461,7 @@ Miembro Comité de Postgrado Pediatría, PUC."
 				speaker4="F. Riquelme "
 				cargo4="Fellow ultrsonido clínico   Urgenciólogo  UC"
 				imgSpeaker4={felipe}
-		
+
 				speaker5="Dr. I.Cañete"
 				cargo5="Médico Universidad de la Frontera y postgrado de Ortopedia y Traumatología UC, donde también realizó su Fellowship en Ortopedia y Traumatología Infantil."
 				imgSpeaker5={ismael}
@@ -460,37 +471,23 @@ Miembro Comité de Postgrado Pediatría, PUC."
 				cargo1="Jefe de Red de Urgencia UC- Christus Health. Instructor Adjunto.
  Jefa de urgencia Pediátrica Hospital Clínico UC"
 				imgSpeaker1={viera}
-		
+
 			/>
 
 			<RowSpeaker
 				setSaveData={setSaveData}
 				abrirCerrar={abrirCerrar}
 				state={state}
-				id={51}
-				grey="grey"
-				inicio="16:30"
-				fin="16:50"
-				tematica="Reflexiones desde la Urgencia:  ¿Cuál es el futuro de la Medicina de Urgencia?"
-				speaker2="Dr. Pablo Aguilera F.  "
-				cargo2="Especialista en Medicina de Urgencia"
-				imgSpeaker2={pablo}
-				
-			/>
-			<RowSpeaker
-				setSaveData={setSaveData}
-				abrirCerrar={abrirCerrar}
-				state={state}
 				id={52}
 				grey=""
-				inicio="16:50"
-				fin="17:00"
+				inicio="16:30"
+				fin="16:40"
 				tematica="Micrófono Abierto desde México"
 				speaker2="Dr. Ricardo Bañuelos"
 				cargo2="Especialista en Medicina de Emergencias Hospital de Traumatología y Ortopedia Dr. y Gral. Rafael Moreno Valle.
 Adscrito al servicio de Urgencias en Instituto Mexicano del Seguro Social"
 				imgSpeaker2={ricardo}
-				
+
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -498,7 +495,7 @@ Adscrito al servicio de Urgencias en Instituto Mexicano del Seguro Social"
 				state={state}
 				id={53}
 				grey="grey"
-				inicio="17:00"
+				inicio="16:40"
 				tematica="Cierre Conferencia"
 			/>
 		</>
