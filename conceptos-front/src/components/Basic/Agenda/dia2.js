@@ -55,7 +55,7 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				moderador="Dr. Mikel Urquiza"
 				speaker2="Dr. Alonso Miguel"
 				cargo1="Miembro del Comité de Postgrado en Medicina de Urgencia 
-				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021"
+				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS UC 2021"
 				cargo2="Especialista en Medicina de Urgencia
 				Diplomado en Docencia Universitaria – PUC
 				Instructor en Simulación – IMS"
@@ -283,7 +283,7 @@ Docente del programa de medicina de urgencia de la Universidad Autónoma de Chil
 				tematica="Doctor, hace 1 semana tuve mi quimio…"
 				speaker2="Dr. Mikel Urquiza "
 				cargo2="Miembro del Comité de Postgrado en Medicina de Urgencia 
-				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021"
+				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS UC 2021"
 				imgSpeaker2={mikel}
 			/>
 			<RowSpeaker
@@ -324,7 +324,7 @@ Instructor adjunto UC"
 				fin="12:30"
 				tematica="💩, tiene Cáncer: entregando malas noticias"
 				speaker2="Dr. Renato Varela"
-				cargo2="Medico Jefe Servicio de Urgencia Clínica Alemana de Valdivia. 
+				cargo2="Médico Jefe Servicio de Urgencia Clínica Alemana de Valdivia. 
 Servicio de Salud Valdivia Pontificia Universidad Católica de Chile. "
 				imgSpeaker2={renato}
 			/>
@@ -409,7 +409,7 @@ Miembro Comité de Postgrado Pediatría, PUC."
 				cargo2="Residente Becada Medicina de Urgencia
 Pontificia Universidad Católica de Chile"
 				speaker3="Dr. Felipe Riquelme"
-				cargo3="Medicina de Urgencia UC."
+				cargo3="Fellow ultrasonido clínico   Urgenciólogo  UC"
 				imgSpeaker2={sofiar}
 				imgSpeaker3={felipe}
 			/>
@@ -427,7 +427,7 @@ Pontificia Universidad Católica de Chile"
 				cargo2="Médico Universidad de la Frontera y postgrado de Ortopedia y Traumatología UC, donde también realizó su Fellowship en Ortopedia y Traumatología Infantil. "
 				speaker3="Dr. Mikel Urquiza"
 				cargo3="Miembro del Comité de Postgrado en Medicina de Urgencia 
-de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021"
+de la Pontificia Universidad Católica de Chile. Director CONCEPTOS UC 2021"
 				imgSpeaker2={ismael}
 				imgSpeaker3={mikel}
 			/>
@@ -460,7 +460,7 @@ Fundador y Profesor asistente de la subespecialidad de Medicina de Emergencia In
 Miembro Comité de Postgrado Pediatría, PUC."
 				imgSpeaker3={cristians}
 				speaker4="F. Riquelme "
-				cargo4="Fellow ultrsonido clínico   Urgenciólogo  UC"
+				cargo4="Fellow ultrasonido clínico   Urgenciólogo  UC"
 				imgSpeaker4={felipe}
 
 				speaker5="Dr. I.Cañete"

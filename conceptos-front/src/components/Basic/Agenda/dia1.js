@@ -57,7 +57,7 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				moderador="Dr. Mikel Urquiza"
 				speaker2="Dr. Alonso Miguel"
 				cargo1="Miembro del Comité de Postgrado en Medicina de Urgencia 
-				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021"
+				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS UC 2021"
 				cargo2="Especialista en Medicina de Urgencia
 				Diplomado en Docencia Universitaria – PUC
 				Instructor en Simulación – IMS"
@@ -147,7 +147,7 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				tematica="Mesa redonda"
 				moderador="Dr. Mikel Urquiza"
 				cargo1="Miembro del Comité de Postgrado en Medicina de Urgencia 
-				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021"
+				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS UC 2021"
 				imgSpeaker1={mikel}
 				speaker2="Dr. Ricardo Bañuelos"
 				speaker3="Dr. Pablo. Aguilera "
@@ -241,7 +241,7 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				speaker2="Dra. Daniela Santander "
 				speaker3="Dr. Mikel Urquiza"
 				cargo3="Miembro del Comité de Postgrado en Medicina de Urgencia 
-				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021
+				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS UC 2021
 				"
 				imgSpeaker3={mikel}
 				imgSpeaker2={daniela}
@@ -378,8 +378,8 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				grey="grey"
 				inicio="13:00"
 				fin="14:30"
-				tematica="Receso de Almuerzo - Simposio Boheringer - Ingelheim 'Trombolosis en ataque cerebrovascular'"
-				speaker2="Dr. Alejandro Boehringer"
+				tematica="Receso de Almuerzo - Simposio Boehringer - Ingelheim 'Trombolisis en ataque cerebrovascular'"
+				speaker2="Dr. Alejandro Brunser"
 				cargo2="Médico Neurólogo, Unidad de Tratamiento de Ataque Cerebrovascular de Clínica Alemana (UTAC)"
 				imgSpeaker2={alejandro}
 			/>
@@ -419,7 +419,7 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				fin="15:10"
 				tematica="USC en Disnea, ¿mejor que la Rx?"
 				speaker2="Dr. Felipe Riquelme"
-				cargo2="Fellow ultrsonido clínico   Urgenciólogo  UC"
+				cargo2="Fellow ultrasonido clínico   Urgenciólogo  UC"
 				imgSpeaker2={felipe}
 			/>
 
@@ -471,11 +471,18 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="16:00"
 				fin="16:30"
 				tematica="Conversatorio - Ultrasonido Clínico: Dr. Carlos Basaure y Dr. Tomás Villén "
-				speaker2="Dr. Alonso Miguel"
+				speaker="Dr. Alonso Miguel"
 				imgSpeaker2={alonso}
 				cargo2="Especialista en Medicina de Urgencia
 				Diplomado en Docencia Universitaria – PUC
 				Instructor en Simulación – IMS"
+				speaker3="Dr. Carlos Basaure"
+				cargo3="Jefe de Programa de Postítulo Sección Urgencia UC"
+				imgSpeaker3={carlos}
+				speaker4="Dr. Tomás Villén Villegas, ESPAÑA"
+				cargo4="Profesor Asociado. Director del currículo de ultrasonido en el punto de atención. Universidad Francisco de Vitoria. Madrid. Presidente de la Sección de Ecografía de la Sociedad Española de Medicina de Urgencias, Secretario General de Winfocus"
+				imgSpeaker4={tomas}
+
 			/>
 			<RowSpeaker
 				setSaveData={setSaveData}
@@ -485,10 +492,10 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				grey=""
 				inicio="16:30"
 				fin="16:50"
-				tematica="Biomerieux: Film Array"
+				tematica="Biomérieux: Film Array"
 				speaker2="Dr. Mikel Urquiza"
 				cargo2="Miembro del Comité de Postgrado en Medicina de Urgencia 
-				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS 2021
+				de la Pontificia Universidad Católica de Chile. Director CONCEPTOS UC 2021
 				"
 				imgSpeaker2={mikel}
 			/>
