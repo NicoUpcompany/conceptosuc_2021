@@ -13,10 +13,10 @@ import carlos from '../../../assets/expo/carlos.png';
 import hans from '../../../assets/expo/hand.png';
 import cristo from '../../../assets/expo/cristo.png';
 import cristian from '../../../assets/expo/cristian.png';
-import rolando from '../../../assets/expo/rolando.png';
+import rolando from '../../../assets/expo/rolando.jpg';
 import felipem from '../../../assets/expo/felipem.png';
 import allan from '../../../assets/expo/allan.png';
-import drpo from '../../../assets/expo/drpo.png';
+import drpo from '../../../assets/expo/drpo.jpg';
 import maria from '../../../assets/expo/maria.png';
 import renato from '../../../assets/expo/renato.png';
 import carolina from '../../../assets/expo/carolina.png';
@@ -257,6 +257,7 @@ Médico de urgencia del hospital de Curicó
 Diplomado en ética, filosofía y medicina basada en la evidencia.
 Docente del programa de medicina de urgencia de la Universidad Autónoma de Chile, sede Talca."
 				imgSpeaker2={drpo}
+				imgSpeaker3={drpo}
 
 			/>
 

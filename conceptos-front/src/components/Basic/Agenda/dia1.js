@@ -26,7 +26,7 @@ import tomas from '../../../assets/expo/tomas.jpg';
 import felipe from '../../../assets/expo/felipe.png';
 import carlos from '../../../assets/expo/carlos.png';
 import hans from '../../../assets/expo/hand.png';
-import ricardo2 from '../../../assets/expo/ricardo.jpeg';
+import ricardo2 from '../../../assets/expo/ricardo2.jpg';
 
 
 const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
@@ -376,10 +376,10 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				state={state}
 				id={19}
 				grey="grey"
-				inicio="12:30"
-				fin="13:00"
-				tematica="Receso de Almuerzo - Simposio Boheringer - Ingelheim 'Trombolitis en ataque cerebrovascular'"
-				speaker2="Dr. Alejandro Brunser"
+				inicio="13:00"
+				fin="14:30"
+				tematica="Receso de Almuerzo - Simposio Boheringer - Ingelheim 'Trombolosis en ataque cerebrovascular'"
+				speaker2="Dr. Alejandro Boehringer"
 				cargo2="Médico Neurólogo, Unidad de Tratamiento de Ataque Cerebrovascular de Clínica Alemana (UTAC)"
 				imgSpeaker2={alejandro}
 			/>

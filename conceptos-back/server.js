@@ -20,6 +20,7 @@ const io = require("socket.io")(server, {
 //Agenda día 1 
 const agenda1 = require('./agenda1');
 const agenda2 = require('./agenda2');
+const agenda3 = require('./agendaQa');
 
 let agendaStatus = false;
 let agendaStatusAux = true;
@@ -438,27 +439,68 @@ io.on("connection", (socket) => {
 	});
   });
 
-// Día 1
+//Día Qa
+const agendaDateStartAux3 = momentTimezone.tz(
+	"2021-11-11T09:50:00",
+	"America/Santiago"
+);
+
+const agendaDateStart3 = moment(agendaDateStartAux3).format()
+const activeAgendaStart3 = schedule.scheduleJob(agendaDateStart3, function () {
+	agendaArray = users;
+	agendaStatus = true;
+  });
+
+  const agendaDateEndAux3 = momentTimezone.tz(
+	"2021-11-11T11:00:00",
+	"America/Santiago"
+  );
+  const agendaDateEnd3 = moment(agendaDateEndAux3).format();
+  const activeAgendaEnd3 = schedule.scheduleJob(agendaDateEnd3, function () {
+	agendaArray = [];
+	agendaStatus = false;
+  });
+
+
+// Día 12
 const agendaDateStartAux = momentTimezone.tz(
-	"2021-11-10T17:24:00",
+	"2021-11-12T08:00:00",
 	"America/Santiago"
   );
 
 const agendaDateStart = moment(agendaDateStartAux).format()
 const activeAgendaStart = schedule.scheduleJob(agendaDateStart, function () {
-	console.log('Inicio la agenda');
-	console.log(users);
 	agendaArray = users;
 	agendaStatus = true;
   });
 
   const agendaDateEndAux = momentTimezone.tz(
-	"2021-11-10T11:55:00",
+	"2021-11-12T19:00:00",
 	"America/Santiago"
   );
   const agendaDateEnd = moment(agendaDateEndAux).format();
   const activeAgendaEnd = schedule.scheduleJob(agendaDateEnd, function () {
-	console.log(users);
+	agendaArray = [];
+	agendaStatus = false;
+  });
+// Día 13
+const agendaDateStartAux2 = momentTimezone.tz(
+	"2021-11-13T08:00:00",
+	"America/Santiago"
+  );
+
+const agendaDateStart2 = moment(agendaDateStartAux2).format()
+const activeAgendaStart2 = schedule.scheduleJob(agendaDateStart2, function () {
+	agendaArray = users;
+	agendaStatus = true;
+  });
+
+  const agendaDateEndAux2 = momentTimezone.tz(
+	"2021-11-13T19:00:00",
+	"America/Santiago"
+  );
+  const agendaDateEnd2 = moment(agendaDateEndAux2).format();
+  const activeAgendaEnd2 = schedule.scheduleJob(agendaDateEnd2, function () {
 	agendaArray = [];
 	agendaStatus = false;
   });
@@ -469,7 +511,6 @@ const activeAgendaStart = schedule.scheduleJob(agendaDateStart, function () {
 // const finalDate1 = moment(date1).format();
 
 // Día 1
-
 for (let index = 0; index < agenda1.length; index++) {
 
 	let d = schedule.scheduleJob(agenda1[index].finalDate, function () {
@@ -504,6 +545,29 @@ for (let index2 = 0; index2 < agenda2.length; index2++) {
 		userAgenda.title = agenda2[index2].title;
 		userAgenda.hour = agenda2[index2].hour;
 		userAgenda.hourEnd = agenda2[index2].hourEnd;
+		userAgenda.users = agendaArray;
+		userAgenda.peakCount = peak.count;
+		userAgenda.peakTime = peak.time;
+		userAgenda.method = "Automatic";
+		userAgenda.save((err, userAgendaStored) => {});
+		agendaArray = users;
+		peak = {
+		  time: null,
+		  count: 0,
+		};
+	  });
+}
+//Día qa
+for (let index3 = 0; index3 < agenda3.length; index3++) {
+
+	let d2 = schedule.scheduleJob(agenda3[index3].finalDate, function () {
+	
+		console.log('Se activo el ' + agenda1[index3].finalDate);
+		const userAgenda = new UserAgenda();
+		userAgenda.day = 13;
+		userAgenda.title = agenda3[index3].title;
+		userAgenda.hour = agenda3[index3].hour;
+		userAgenda.hourEnd = agenda3[index3].hourEnd;
 		userAgenda.users = agendaArray;
 		userAgenda.peakCount = peak.count;
 		userAgenda.peakTime = peak.time;

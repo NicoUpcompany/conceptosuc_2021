@@ -928,7 +928,6 @@ const Streaming = () => {
 			) : null}
 
 			<div className="franja">
-
 				<h4>AUSPCIAN:</h4>
 			</div>
 
