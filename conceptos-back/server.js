@@ -304,8 +304,7 @@ rule.minute = new schedule.Range(0, 59, 5);
 
 io.on("connection", (socket) => {
 	socket.on("NEW_USER", (user) => {
-
-	console.log('Nuevo usuario Conectado');
+ 
 	  try {
 		const newUser = {
 		  id: socket.id,
@@ -488,7 +487,6 @@ const activeAgendaStart2 = schedule.scheduleJob(agendaDateStart2, function () {
 
 // Día 1
 for (let index = 0; index < agenda1.length; index++) {
-
 	let d = schedule.scheduleJob(agenda1[index].finalDate, function () {
 		const userAgenda = new UserAgenda();
 		userAgenda.day = 12;
@@ -510,7 +508,6 @@ for (let index = 0; index < agenda1.length; index++) {
 
 //Día 2
 for (let index2 = 0; index2 < agenda2.length; index2++) {
-
 	let d2 = schedule.scheduleJob(agenda2[index2].finalDate, function () {
 		const userAgenda = new UserAgenda();
 		userAgenda.day = 13;
