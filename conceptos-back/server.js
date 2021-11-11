@@ -20,7 +20,6 @@ const io = require("socket.io")(server, {
 //Agenda día 1 
 const agenda1 = require('./agenda1');
 const agenda2 = require('./agenda2');
-const agenda3 = require('./agendaQa');
 
 let agendaStatus = false;
 let agendaStatusAux = true;
@@ -439,32 +438,9 @@ io.on("connection", (socket) => {
 	});
   });
 
-//Día Qa
-const agendaDateStartAux3 = momentTimezone.tz(
-	"2021-11-11T09:50:00",
-	"America/Santiago"
-);
-
-const agendaDateStart3 = moment(agendaDateStartAux3).format()
-const activeAgendaStart3 = schedule.scheduleJob(agendaDateStart3, function () {
-	agendaArray = users;
-	agendaStatus = true;
-  });
-
-  const agendaDateEndAux3 = momentTimezone.tz(
-	"2021-11-11T11:00:00",
-	"America/Santiago"
-  );
-  const agendaDateEnd3 = moment(agendaDateEndAux3).format();
-  const activeAgendaEnd3 = schedule.scheduleJob(agendaDateEnd3, function () {
-	agendaArray = [];
-	agendaStatus = false;
-  });
-
-
 // Día 12
 const agendaDateStartAux = momentTimezone.tz(
-	"2021-11-12T08:00:00",
+	"2021-11-12T07:50:00",
 	"America/Santiago"
   );
 
@@ -485,7 +461,7 @@ const activeAgendaStart = schedule.scheduleJob(agendaDateStart, function () {
   });
 // Día 13
 const agendaDateStartAux2 = momentTimezone.tz(
-	"2021-11-13T08:00:00",
+	"2021-11-13T07:50:00",
 	"America/Santiago"
   );
 
@@ -514,8 +490,6 @@ const activeAgendaStart2 = schedule.scheduleJob(agendaDateStart2, function () {
 for (let index = 0; index < agenda1.length; index++) {
 
 	let d = schedule.scheduleJob(agenda1[index].finalDate, function () {
-	
-		console.log('Se activo el ' + agenda1[index].finalDate);
 		const userAgenda = new UserAgenda();
 		userAgenda.day = 12;
 		userAgenda.title = agenda1[index].title;
@@ -538,36 +512,11 @@ for (let index = 0; index < agenda1.length; index++) {
 for (let index2 = 0; index2 < agenda2.length; index2++) {
 
 	let d2 = schedule.scheduleJob(agenda2[index2].finalDate, function () {
-	
-		console.log('Se activo el ' + agenda1[index2].finalDate);
 		const userAgenda = new UserAgenda();
 		userAgenda.day = 13;
 		userAgenda.title = agenda2[index2].title;
 		userAgenda.hour = agenda2[index2].hour;
 		userAgenda.hourEnd = agenda2[index2].hourEnd;
-		userAgenda.users = agendaArray;
-		userAgenda.peakCount = peak.count;
-		userAgenda.peakTime = peak.time;
-		userAgenda.method = "Automatic";
-		userAgenda.save((err, userAgendaStored) => {});
-		agendaArray = users;
-		peak = {
-		  time: null,
-		  count: 0,
-		};
-	  });
-}
-//Día qa
-for (let index3 = 0; index3 < agenda3.length; index3++) {
-
-	let d2 = schedule.scheduleJob(agenda3[index3].finalDate, function () {
-	
-		console.log('Se activo el ' + agenda1[index3].finalDate);
-		const userAgenda = new UserAgenda();
-		userAgenda.day = 13;
-		userAgenda.title = agenda3[index3].title;
-		userAgenda.hour = agenda3[index3].hour;
-		userAgenda.hourEnd = agenda3[index3].hourEnd;
 		userAgenda.users = agendaArray;
 		userAgenda.peakCount = peak.count;
 		userAgenda.peakTime = peak.time;
