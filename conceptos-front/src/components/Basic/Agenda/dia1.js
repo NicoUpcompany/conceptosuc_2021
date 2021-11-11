@@ -471,7 +471,7 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				inicio="16:00"
 				fin="16:30"
 				tematica="Conversatorio - Ultrasonido Clínico: Dr. Carlos Basaure y Dr. Tomás Villén "
-				speaker="Dr. Alonso Miguel"
+				speaker2="Dr. Alonso Miguel"
 				imgSpeaker2={alonso}
 				cargo2="Especialista en Medicina de Urgencia
 				Diplomado en Docencia Universitaria – PUC

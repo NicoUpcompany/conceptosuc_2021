@@ -218,8 +218,7 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				fin="11:00"
 				tematica="Mitos en COVID19: Aerosoles y VA"
 				speaker2="Dr. Allan Mix "
-				cargo2="Instructor adj urgencia UC
-Jefe servicio Medicina de urg Féliz Bulnes"
+				cargo2="Instructor adjunto de Urgencia Hospital Felix Bulnes"
 				imgSpeaker2={allan}
 			/>
 			<RowSpeaker
