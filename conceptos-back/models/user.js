@@ -27,7 +27,7 @@ const userSchema = Schema({
 	active: { type: Boolean, default: true },
 	agendaDaysName: [Object],
 	agendaDaysNumber: [Object],
-	agenda: { type: Boolean, default: false },
+	agenda: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model("User", userSchema);

@@ -12,6 +12,7 @@ import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../utils/constants";
 import { emailValidation } from "../../../utils/formValidation";
 import { getAccreditationApi } from "../../../api/Admin/accreditation";
 import { getNetworkingApi } from "../../../api/Admin/networking";
+import Socket from "../../../utils/socket";
 
 import "./LoginForm.scss";
 
@@ -104,8 +105,15 @@ const LoginForm = (props) => {
 			localStorage.setItem(ACCESS_TOKEN, accessToken);
 			localStorage.setItem(REFRESH_TOKEN, refreshToken);
 			const decodedToken = jwtDecode(accessToken);
+			console.log(decodedToken);
 			localStorage.setItem("userID", decodedToken.id);
 			setSaveData(2);
+			const user = {
+				id: decodedToken.id,
+				route: window.location.pathname,
+				email: decodedToken.email
+			};
+			Socket.emit('NUEVO_USUARIO', user);
 			const resp = await getNetworkingApi();
 			if (resp.ok) {
 				COMETCHAT_CONSTANTS.APP_ID = resp.networking.APP_ID;

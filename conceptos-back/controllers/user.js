@@ -163,6 +163,7 @@ function signUp(req, res) {
 						ok: false,
 						message: "Ingreso no permitido",
 					});
+				
 				} else {
 					userStored.signInTime = signInTime;
 					User.findByIdAndUpdate({ _id: userStored.id }, userStored, (err, userUpdate) => {

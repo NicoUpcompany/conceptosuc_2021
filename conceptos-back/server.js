@@ -17,6 +17,7 @@ const io = require("socket.io")(server, {
 		origin: "*",
 	},
 });
+
 //Agenda día 1 
 const agenda1 = require('./agenda1');
 const agenda2 = require('./agenda2');
@@ -27,6 +28,7 @@ let talkStatusAux = true;
 let arrayDays = [];
 let arrayTalks = [];
 let users = [];
+let UsuariosConectados = [];
 let agendaArray = [];
 let peak = {
 	time: null,
@@ -304,7 +306,7 @@ rule.minute = new schedule.Range(0, 59, 5);
 
 io.on("connection", (socket) => {
 	socket.on("NEW_USER", (user) => {
- 
+		console.log('usuario conectado')
 	  try {
 		const newUser = {
 		  id: socket.id,
@@ -437,14 +439,117 @@ io.on("connection", (socket) => {
 	});
   });
 
+//Aquí es donde se hace lo de las conexiones y desconecta si alguien ya esta conectado
+io.on("connection", (socket) => {
+	socket.on("NUEVO_USUARIO", (user) => {
+		console.log('usuario conectado 2')
+	  try {
+		const newUser = {
+		  id: socket.id, 
+		  email: user.email,
+		};
+		const i = UsuariosConectados.findIndex(user => user.email === newUser.email);
+		console.log(i);
+		console.log(UsuariosConectados);
+		if(i !== -1 ){
+			console.log('El usuario ya está conectado');
+			io.to(UsuariosConectados[i].id).emit('DISCONNECT_USER')
+			UsuariosConectados.splice(i, 1);
+			console.log(UsuariosConectados);
+		}
+		UsuariosConectados.push(newUser);
+	  } catch (error) {
+		console.log(error);
+	  }
+	});
+  
+	socket.on("UPDATE_ROUTE", (user) => {
+	  try {
+		const index = users.findIndex((element) => element.id === socket.id);
+		if (index >= 0) {
+		  users[index].route = user.route;
+		  io.emit("UPDATE_USER_LIST", users);
+		}
+		if (agendaStatus) {
+		  const index2 = agendaArray.findIndex(
+			(element) => element.id === socket.id
+		  );
+		  if (index2 >= 0) {
+			agendaArray[index2].route = user.route;
+		  }
+		}
+	  } catch (error) {
+		console.log(error);
+	  }
+	});
+  
+	socket.on("GET_USERS", () => {
+	  io.emit("UPDATE_USER_LIST", users);
+	});
+  
+	socket.on("GET_PEAK", () => {
+	  io.emit("PEAK", peak);
+	});
+  
+	socket.on("disconnect", () => {
+	  try {
+		const index = users.findIndex((element) => element.id === socket.id);
+		if (index >= 0) {
+		  console.log('Usuario desconectado');
+		  const realTime = new RealTime();
+		  realTime.user = users[index].userId;
+		  realTime.flagIcon = users[index].flagIcon;
+		  realTime.city = users[index].city;
+		  realTime.postalCode = users[index].postalCode;
+		  realTime.continent = users[index].continent;
+		  realTime.continentCode = users[index].continentCode;
+		  realTime.country = users[index].country;
+		  realTime.countryIsoCode = users[index].countryIsoCode;
+		  realTime.locationLatLong = users[index].locationLatLong;
+		  realTime.accuracyRadius = users[index].accuracyRadius;
+		  realTime.timeZone = users[index].timeZone;
+		  realTime.region = users[index].region;
+		  realTime.regionIsoCode = users[index].regionIsoCode;
+		  realTime.ipAddress = users[index].ipAddress;
+		  realTime.ipType = users[index].ipType;
+		  realTime.isp = users[index].isp;
+		  realTime.conectionType = users[index].conectionType;
+		  realTime.navigatorName = users[index].navigatorName;
+		  realTime.operatingSystem = users[index].operatingSystem;
+		  realTime.conectionTime = users[index].conectionTime;
+		  realTime.conectionTimeEnd = new Date(
+			moment().subtract(4, "hours").format()
+		  ).getTime();
+		  realTime.save((err, realTimeStored) => {});
+		  users = users.filter((u) => u.id !== socket.id);
+		  io.emit("UPDATE_USER_LIST", users);
+		  socket.removeAllListeners();
+		}
+		if (agendaStatus) {
+		  const index2 = agendaArray.findIndex(
+			(element) => element.id === socket.id
+		  );
+		  if (index2 >= 0) {
+			agendaArray[index2].conectionTimeEnd = new Date(
+			  moment().subtract(4, "hours").format()
+			).getTime();
+		  }
+		}
+	  } catch (error) {
+		console.log(error);
+	  }
+	});
+  });
+
 // Día 12
 const agendaDateStartAux = momentTimezone.tz(
-	"2021-11-12T08:10:00",
+	"2021-11-12T16:05:00",
 	"America/Santiago"
   );
 
 const agendaDateStart = moment(agendaDateStartAux).format()
 const activeAgendaStart = schedule.scheduleJob(agendaDateStart, function () {
+	console.log('Se activo la agenda');
 	agendaArray = users;
 	agendaStatus = true;
   });
@@ -482,8 +587,33 @@ const activeAgendaStart2 = schedule.scheduleJob(agendaDateStart2, function () {
 
   // Día 1
 //#region
-// const date1 = momentTimezone.tz("2021-11-10T17:10:00", "America/Santiago");
+//Aquí puedes probar las conexiones por charla cambianod las fechas
+//Tienes que iniciar la agenda en la linea 545 aprox
+
+// const date1 = momentTimezone.tz("2021-11-12T16:07:00", "America/Santiago");
 // const finalDate1 = moment(date1).format();
+
+// let dq = schedule.scheduleJob(finalDate1, function () {
+// 	const userAgenda = new UserAgenda();
+// 	userAgenda.day = 12;
+// 	userAgenda.title ="Funciona ";
+// 	userAgenda.hour = "12312";
+// 	userAgenda.hourEnd = "asfasdf";
+// 	userAgenda.users = agendaArray;
+// 	userAgenda.peakCount = peak.count;
+// 	userAgenda.peakTime = peak.time;
+// 	userAgenda.method = "Automatic";
+// 	userAgenda.save((err, userAgendaStored) => {});
+// 	agendaArray = users;
+// 	peak = {
+// 	  time: null,
+// 	  count: 0,
+// 	};
+//   });
+//Aquí puedes probar las conexiones por charla cambianod las fechas
+
+
+
 
 // Día 1
 for (let index = 0; index < agenda1.length; index++) {

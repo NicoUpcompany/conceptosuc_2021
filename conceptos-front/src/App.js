@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {notification} from 'antd'
 import jwtDecode from "jwt-decode";
 import {
 	browserName,
@@ -132,6 +133,15 @@ class App extends React.Component {
 						operatingSystem: `${osName} ${osVersion}`,
 					};
 					Socket.emit("NEW_USER", newUser);
+
+					Socket.on("DISCONNECT_USER", () =>{
+							localStorage.removeItem('accessToken');
+							localStorage.removeItem('refreshToken');
+							window.location.href = '/iniciarsesion';
+							notification['error']({
+								message:'Ha iniciado sesión en otro dispositivo'
+							})
+					})
 					clearInterval(interval);
 				}
 			}
