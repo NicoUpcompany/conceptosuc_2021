@@ -439,7 +439,7 @@ io.on("connection", (socket) => {
 
 // Día 12
 const agendaDateStartAux = momentTimezone.tz(
-	"2021-11-12T07:50:00",
+	"2021-11-12T08:10:00",
 	"America/Santiago"
   );
 

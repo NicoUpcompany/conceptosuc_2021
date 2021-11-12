@@ -24,6 +24,8 @@ import Perfil from "../pages/Basic/Perfil/Perfil";
 
 // Other
 import Error404 from "../pages/Error404";
+import { Viernes } from "../components/Basic/OnDemand/Viernes";
+import { Sabado } from "../components/Basic/OnDemand/Sabado";
 
 const routes = [
 	{
@@ -109,6 +111,16 @@ const routes = [
 			{
 				path: "/streaming",
 				component: Streaming,
+				exact: true,
+			},
+			{
+				path: "/sala1",
+				component: Viernes,
+				exact: true,
+			},
+			{
+				path: "/sala2",
+				component: Sabado,
 				exact: true,
 			},
 			{

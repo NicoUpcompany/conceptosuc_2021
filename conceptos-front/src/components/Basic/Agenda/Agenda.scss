@@ -437,11 +437,26 @@
 			.row4 {
 				// display: none;
 
+				.btn2{
+					width: 30%;
+					font-size: 8px;
+				}
+
 				.tiempo{
 					margin-right: 10px;
+					width: 15%;
+
+					p{
+						font-size: 12px;
+					}
 				}
 				.plenario{
 					margin-left: 50px;
+					width: 30%;
+					
+					p{
+						font-size: 12px;
+					}
 				}
 			}
 			.row2 {
