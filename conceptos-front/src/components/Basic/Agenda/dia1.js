@@ -39,10 +39,10 @@ const Dia1 = ({ setSaveData, abrirCerrar, state }) => {
 				<div className="plenario">
 					<p>Plenario</p>
 				</div>
-				{/* <Link
+				<Link
 					className='btn2'
 					to='/sala1'
-				>VER CURSO AQUÍ</Link> */}
+				>VER CURSO AQUÍ</Link>
 			</div>
 
 			<RowSpeaker

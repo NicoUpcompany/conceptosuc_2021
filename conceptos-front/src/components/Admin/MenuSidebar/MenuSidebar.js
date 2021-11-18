@@ -69,10 +69,10 @@ function MenuSidebar(props) {
 						<span className="nav-text">Conexiones charla</span>
 					</Link>
 				</Menu.Item>
-				<Menu.Item key="/dashboard/encuesta">
-					<Link to={"/dashboard/encuesta"}>
+				<Menu.Item key="/dashboard/prueba">
+					<Link to={"/dashboard/prueba"}>
 						<BarChartOutlined />
-						<span className="nav-text">Encuestas</span>
+						<span className="nav-text">Prueba</span>
 					</Link>
 				</Menu.Item>
 				<Menu.Item key="/dashboard/componentes">

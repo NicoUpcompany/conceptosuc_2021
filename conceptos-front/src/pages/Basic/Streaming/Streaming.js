@@ -858,7 +858,7 @@ const Streaming = () => {
 						</h1>
 					</div>
 				</div>
-				<div className="contenedorStreaming">
+				{/* <div className="contenedorStreaming">
 					<div className='contenedor-streaming'>
 						<div className="col1">
 							<div className="streaming ">
@@ -883,7 +883,7 @@ const Streaming = () => {
 						</div>
 
 					</div>
-				</div>
+				</div> */}
 			</div>
 			<div className="fondo">
 				<Spin
@@ -893,11 +893,11 @@ const Streaming = () => {
 					indicator={antIcon}
 				>
 
-					<Question
+					{/* <Question
 						sendQuestion={sendQuestion}
 						onChange={onChange}
 						questionInput={questionInput}
-					/>
+					/> */}
 				</Spin>
 
 				{config.stand ? (

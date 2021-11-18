@@ -10,6 +10,8 @@ const eventRoutes = require("./routes/event");
 const realTimeRoutes = require("./routes/realTime");
 const questionRoutes = require("./routes/question");
 const userAgendaRoutes = require("./routes/userAgenda");
+const testRoutes = require("./routes/test");
+
 //#endregion
 
 // Admin
@@ -76,6 +78,8 @@ app.use(`/api/${API_VERSION}`, adminWaitingRoomRoutes);
 app.use(`/api/${API_VERSION}`, adminStreamingRoutes);
 app.use(`/api/${API_VERSION}`, adminNetworkingRoutes);
 app.use(`/api/${API_VERSION}`, adminPollRoutes);
+app.use(`/api/${API_VERSION}`, testRoutes );
+
 //#endregion
 
 module.exports = app;

@@ -16,6 +16,12 @@ exports.createAccessToken = function(user) {
         role: user.role,
         agendaDaysName: user.agendaDaysName,
         agendaDaysNumber: user.agendaDaysNumber,
+        test: user.test,
+		note: user.note,
+		startTest: user.startTest,
+		aprobado: user.aprobado,
+		correctas: user.correctas,
+		finishTest: user.finishTest,
         agenda: user.agenda,
         createToken: moment().unix(),
         exp: moment().add(10, "hours").unix()

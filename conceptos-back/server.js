@@ -35,6 +35,7 @@ let peak = {
 	count: 0,
 };
 let rule = new schedule.RecurrenceRule();
+let statusTest = false;
 
 rule.minute = new schedule.Range(0, 59, 5);
 
@@ -57,7 +58,7 @@ rule.minute = new schedule.Range(0, 59, 5);
 // 						if (arrayTalks.length > 0) {
 // 							talkStatusAux = false;
 // 							agendaStatusAux = false;
-							
+
 // 							arrayDays.forEach(element => {
 // 								const agendaDateStartAux = new Date(element.year, element.month, element.day, 0, 0, 0);
 // 								const agendaDateStart = new Date(moment(agendaDateStartAux).add(4, "hours").format());
@@ -65,7 +66,7 @@ rule.minute = new schedule.Range(0, 59, 5);
 // 									agendaArray = users;
 // 									agendaStatus = true;
 // 								});
-						
+
 // 								const agendaDateEndAux = new Date(element.year, element.month, element.day, 23, 59, 59);
 // 								const agendaDateEnd = new Date(moment(agendaDateEndAux).add(4, "hours").format());
 // 								const activeAgendaEnd = schedule.scheduleJob(agendaDateEnd, function () {
@@ -76,7 +77,7 @@ rule.minute = new schedule.Range(0, 59, 5);
 // 								arrayTalks.forEach(item => {
 // 									const date = new Date(element.year, element.month, element.day, parseInt(item.hourStart), parseInt(item.minuteStart), 0);
 // 									const finalDate = new Date(moment(date).add(4, "hours").format());
-	
+
 // 									const d = schedule.scheduleJob(finalDate, function () {
 // 										const userAgenda = new UserAgenda();
 // 										userAgenda.day = element.day;
@@ -169,7 +170,7 @@ rule.minute = new schedule.Range(0, 59, 5);
 // 	// 				agendaArray = users;
 // 	// 				agendaStatus = true;
 // 	// 			});
-		
+
 // 	// 			const agendaDateEndAux = new Date(element.year, element.month, element.day, 23, 59, 59);
 // 	// 			const agendaDateEnd = new Date(
 // 	// 				moment(agendaDateEndAux).add(4, "hours").format()
@@ -195,7 +196,7 @@ rule.minute = new schedule.Range(0, 59, 5);
 // 	// 					const item = talkStored;
 // 	// 					const date = new Date(element.year, element.month, element.day, parseInt(item.hourStart), parseInt(item.minuteStart), 0);
 // 	// 					const finalDate = new Date(moment(date).add(4, "hours").format());
-			
+
 // 	// 					const d = schedule.scheduleJob(finalDate, function () {
 // 	// 						const userAgenda = new UserAgenda();
 // 	// 						userAgenda.day = element.day;
@@ -302,290 +303,336 @@ rule.minute = new schedule.Range(0, 59, 5);
 // });
 
 
-//Se agrega otro server
 
+const startTest = momentTimezone.tz(
+	"2021-11-15T17:09:00",
+	"America/Santiago"
+);
+
+const dateStartTest = moment(startTest).format()
+
+
+const activeStatusTest = schedule.scheduleJob(dateStartTest, function () {
+	statusTest = true;
+	io.emit('START_TEST', true);
+});
+
+
+const finistTest = momentTimezone.tz(
+	"2021-11-15T17:00:00",
+	"America/Santiago"
+);
+
+const datefinistTest = moment(finistTest).format()
+
+
+const activeFinishTest = schedule.scheduleJob(datefinistTest, function () {
+	statusTest = false;
+	io.emit('START_TEST', false);
+});
+
+//Se agrega otro server
 io.on("connection", (socket) => {
+
+	socket.on('CONNECT_PRUEBA', ()=>{
+		if(statusTest) {
+			io.emit('START_TEST', true);
+		}else{
+			io.emit('START_TEST', false);
+		}
+	})
+
+
+
 	socket.on("NEW_USER", (user) => {
-		console.log('usuario conectado')
-	  try {
-		const newUser = {
-		  id: socket.id,
-		  userId: user.userId,
-		  name: user.name,
-		  lastname: user.lastname,
-		  email: user.email,
-		  enterprise: user.enterprise,
-		  position: user.position,
-		  route: user.route,
-		  flagIcon: user.flagIcon,
-		  city: user.city,
-		  postalCode: user.postalCode,
-		  continent: user.continent,
-		  continentCode: user.continentCode,
-		  country: user.country,
-		  countryIsoCode: user.countryIsoCode,
-		  locationLatLong: user.locationLatLong,
-		  accuracyRadius: user.accuracyRadius,
-		  timeZone: user.timeZone,
-		  region: user.region,
-		  regionIsoCode: user.regionIsoCode,
-		  ipAddress: user.ipAddress,
-		  ipType: user.ipType,
-		  isp: user.isp,
-		  conectionType: user.conectionType,
-		  navigatorName: user.navigatorName,
-		  operatingSystem: user.operatingSystem,
-		  conectionTime: new Date(
-			moment().subtract(4, "hours").format()
-		  ).getTime(),
-		  conectionTimeEnd: null,
-		};
-		users.push(newUser);
-		io.emit("USER", newUser);
-		io.emit("UPDATE_USER_LIST", users);
-		if (users.length > peak.count) {
-		  peak.count = users.length;
-		  peak.time = moment().subtract(4, "hours").format("LLL");
-		  io.emit("PEAK", peak);
+		try {
+			const newUser = {
+				id: socket.id,
+				userId: user.userId,
+				name: user.name,
+				lastname: user.lastname,
+				email: user.email,
+				enterprise: user.enterprise,
+				position: user.position,
+				route: user.route,
+				flagIcon: user.flagIcon,
+				city: user.city,
+				postalCode: user.postalCode,
+				continent: user.continent,
+				continentCode: user.continentCode,
+				country: user.country,
+				countryIsoCode: user.countryIsoCode,
+				locationLatLong: user.locationLatLong,
+				accuracyRadius: user.accuracyRadius,
+				timeZone: user.timeZone,
+				region: user.region,
+				regionIsoCode: user.regionIsoCode,
+				ipAddress: user.ipAddress,
+				ipType: user.ipType,
+				isp: user.isp,
+				conectionType: user.conectionType,
+				navigatorName: user.navigatorName,
+				operatingSystem: user.operatingSystem,
+				conectionTime: new Date(
+					moment().subtract(4, "hours").format()
+				).getTime(),
+				conectionTimeEnd: null,
+			};
+			users.push(newUser);
+			io.emit("USER", newUser);
+			io.emit("UPDATE_USER_LIST", users);
+			if (users.length > peak.count) {
+				peak.count = users.length;
+				peak.time = moment().subtract(4, "hours").format("LLL");
+				io.emit("PEAK", peak);
+			}
+			if (agendaStatus) {
+				const index = agendaArray.findIndex(
+					(element) => element.id === newUser.id
+				);
+				if (index < 0) {
+					agendaArray.push(newUser);
+				}
+			}
+		} catch (error) {
+			console.log(error);
 		}
-		if (agendaStatus) {
-		  const index = agendaArray.findIndex(
-			(element) => element.id === newUser.id
-		  );
-		  if (index < 0) {
-			agendaArray.push(newUser);
-		  }
-		}
-	  } catch (error) {
-		console.log(error);
-	  }
 	});
-  
+
 	socket.on("UPDATE_ROUTE", (user) => {
-	  try {
-		const index = users.findIndex((element) => element.id === socket.id);
-		if (index >= 0) {
-		  users[index].route = user.route;
-		  io.emit("UPDATE_USER_LIST", users);
+		try {
+			const index = users.findIndex((element) => element.id === socket.id);
+			if (index >= 0) {
+				users[index].route = user.route;
+				io.emit("UPDATE_USER_LIST", users);
+			}
+			if (agendaStatus) {
+				const index2 = agendaArray.findIndex(
+					(element) => element.id === socket.id
+				);
+				if (index2 >= 0) {
+					agendaArray[index2].route = user.route;
+				}
+			}
+		} catch (error) {
+			console.log(error);
 		}
-		if (agendaStatus) {
-		  const index2 = agendaArray.findIndex(
-			(element) => element.id === socket.id
-		  );
-		  if (index2 >= 0) {
-			agendaArray[index2].route = user.route;
-		  }
-		}
-	  } catch (error) {
-		console.log(error);
-	  }
 	});
-  
+
 	socket.on("GET_USERS", () => {
-	  io.emit("UPDATE_USER_LIST", users);
+		io.emit("UPDATE_USER_LIST", users);
 	});
-  
+
 	socket.on("GET_PEAK", () => {
-	  io.emit("PEAK", peak);
+		io.emit("PEAK", peak);
 	});
-  
+
 	socket.on("disconnect", () => {
-	  try {
-		const index = users.findIndex((element) => element.id === socket.id);
-		if (index >= 0) {
-		  console.log('Usuario desconectado');
-		  const realTime = new RealTime();
-		  realTime.user = users[index].userId;
-		  realTime.flagIcon = users[index].flagIcon;
-		  realTime.city = users[index].city;
-		  realTime.postalCode = users[index].postalCode;
-		  realTime.continent = users[index].continent;
-		  realTime.continentCode = users[index].continentCode;
-		  realTime.country = users[index].country;
-		  realTime.countryIsoCode = users[index].countryIsoCode;
-		  realTime.locationLatLong = users[index].locationLatLong;
-		  realTime.accuracyRadius = users[index].accuracyRadius;
-		  realTime.timeZone = users[index].timeZone;
-		  realTime.region = users[index].region;
-		  realTime.regionIsoCode = users[index].regionIsoCode;
-		  realTime.ipAddress = users[index].ipAddress;
-		  realTime.ipType = users[index].ipType;
-		  realTime.isp = users[index].isp;
-		  realTime.conectionType = users[index].conectionType;
-		  realTime.navigatorName = users[index].navigatorName;
-		  realTime.operatingSystem = users[index].operatingSystem;
-		  realTime.conectionTime = users[index].conectionTime;
-		  realTime.conectionTimeEnd = new Date(
-			moment().subtract(4, "hours").format()
-		  ).getTime();
-		  realTime.save((err, realTimeStored) => {});
-		  users = users.filter((u) => u.id !== socket.id);
-		  io.emit("UPDATE_USER_LIST", users);
-		  socket.removeAllListeners();
+		try {
+			const index = users.findIndex((element) => element.id === socket.id);
+			if (index >= 0) {
+				console.log('Usuario desconectado');
+				const realTime = new RealTime();
+				realTime.user = users[index].userId;
+				realTime.flagIcon = users[index].flagIcon;
+				realTime.city = users[index].city;
+				realTime.postalCode = users[index].postalCode;
+				realTime.continent = users[index].continent;
+				realTime.continentCode = users[index].continentCode;
+				realTime.country = users[index].country;
+				realTime.countryIsoCode = users[index].countryIsoCode;
+				realTime.locationLatLong = users[index].locationLatLong;
+				realTime.accuracyRadius = users[index].accuracyRadius;
+				realTime.timeZone = users[index].timeZone;
+				realTime.region = users[index].region;
+				realTime.regionIsoCode = users[index].regionIsoCode;
+				realTime.ipAddress = users[index].ipAddress;
+				realTime.ipType = users[index].ipType;
+				realTime.isp = users[index].isp;
+				realTime.conectionType = users[index].conectionType;
+				realTime.navigatorName = users[index].navigatorName;
+				realTime.operatingSystem = users[index].operatingSystem;
+				realTime.conectionTime = users[index].conectionTime;
+				realTime.conectionTimeEnd = new Date(
+					moment().subtract(4, "hours").format()
+				).getTime();
+				realTime.save((err, realTimeStored) => { });
+				users = users.filter((u) => u.id !== socket.id);
+				io.emit("UPDATE_USER_LIST", users);
+				socket.removeAllListeners();
+			}
+			if (agendaStatus) {
+				const index2 = agendaArray.findIndex(
+					(element) => element.id === socket.id
+				);
+				if (index2 >= 0) {
+					agendaArray[index2].conectionTimeEnd = new Date(
+						moment().subtract(4, "hours").format()
+					).getTime();
+				}
+			}
+		} catch (error) {
+			console.log(error);
 		}
-		if (agendaStatus) {
-		  const index2 = agendaArray.findIndex(
-			(element) => element.id === socket.id
-		  );
-		  if (index2 >= 0) {
-			agendaArray[index2].conectionTimeEnd = new Date(
-			  moment().subtract(4, "hours").format()
-			).getTime();
-		  }
-		}
-	  } catch (error) {
-		console.log(error);
-	  }
 	});
-  });
+});
 
 //Aquí es donde se hace lo de las conexiones y desconecta si alguien ya esta conectado
 io.on("connection", (socket) => {
 	socket.on("NUEVO_USUARIO", (user) => {
 		console.log('usuario conectado 2')
-	  try {
-		const newUser = {
-		  id: socket.id, 
-		  email: user.email,
-		};
-		const i = UsuariosConectados.findIndex(user => user.email === newUser.email);
-		console.log(i);
-		console.log(UsuariosConectados);
-		if(i !== -1 ){
-			console.log('El usuario ya está conectado');
-			io.to(UsuariosConectados[i].id).emit('DISCONNECT_USER')
-			UsuariosConectados.splice(i, 1);
+		try {
+			const newUser = {
+				id: socket.id,
+				email: user.email,
+			};
+			const i = UsuariosConectados.findIndex(user => user.email === newUser.email);
+			console.log(i);
 			console.log(UsuariosConectados);
+			if (i !== -1) {
+				console.log('El usuario ya está conectado');
+				io.to(UsuariosConectados[i].id).emit('DISCONNECT_USER')
+				UsuariosConectados.splice(i, 1);
+				console.log(UsuariosConectados);
+			}
+			UsuariosConectados.push(newUser);
+		} catch (error) {
+			console.log(error);
 		}
-		UsuariosConectados.push(newUser);
-	  } catch (error) {
-		console.log(error);
-	  }
 	});
-  
+
 	socket.on("UPDATE_ROUTE", (user) => {
-	  try {
-		const index = users.findIndex((element) => element.id === socket.id);
-		if (index >= 0) {
-		  users[index].route = user.route;
-		  io.emit("UPDATE_USER_LIST", users);
+		try {
+			const index = users.findIndex((element) => element.id === socket.id);
+			if (index >= 0) {
+				users[index].route = user.route;
+				io.emit("UPDATE_USER_LIST", users);
+			}
+			if (agendaStatus) {
+				const index2 = agendaArray.findIndex(
+					(element) => element.id === socket.id
+				);
+				if (index2 >= 0) {
+					agendaArray[index2].route = user.route;
+				}
+			}
+		} catch (error) {
+			console.log(error);
 		}
-		if (agendaStatus) {
-		  const index2 = agendaArray.findIndex(
-			(element) => element.id === socket.id
-		  );
-		  if (index2 >= 0) {
-			agendaArray[index2].route = user.route;
-		  }
-		}
-	  } catch (error) {
-		console.log(error);
-	  }
 	});
-  
+
 	socket.on("GET_USERS", () => {
-	  io.emit("UPDATE_USER_LIST", users);
+		io.emit("UPDATE_USER_LIST", users);
 	});
-  
+
 	socket.on("GET_PEAK", () => {
-	  io.emit("PEAK", peak);
+		io.emit("PEAK", peak);
 	});
-  
+
 	socket.on("disconnect", () => {
-	  try {
-		const index = users.findIndex((element) => element.id === socket.id);
-		if (index >= 0) {
-		  console.log('Usuario desconectado');
-		  const realTime = new RealTime();
-		  realTime.user = users[index].userId;
-		  realTime.flagIcon = users[index].flagIcon;
-		  realTime.city = users[index].city;
-		  realTime.postalCode = users[index].postalCode;
-		  realTime.continent = users[index].continent;
-		  realTime.continentCode = users[index].continentCode;
-		  realTime.country = users[index].country;
-		  realTime.countryIsoCode = users[index].countryIsoCode;
-		  realTime.locationLatLong = users[index].locationLatLong;
-		  realTime.accuracyRadius = users[index].accuracyRadius;
-		  realTime.timeZone = users[index].timeZone;
-		  realTime.region = users[index].region;
-		  realTime.regionIsoCode = users[index].regionIsoCode;
-		  realTime.ipAddress = users[index].ipAddress;
-		  realTime.ipType = users[index].ipType;
-		  realTime.isp = users[index].isp;
-		  realTime.conectionType = users[index].conectionType;
-		  realTime.navigatorName = users[index].navigatorName;
-		  realTime.operatingSystem = users[index].operatingSystem;
-		  realTime.conectionTime = users[index].conectionTime;
-		  realTime.conectionTimeEnd = new Date(
-			moment().subtract(4, "hours").format()
-		  ).getTime();
-		  realTime.save((err, realTimeStored) => {});
-		  users = users.filter((u) => u.id !== socket.id);
-		  io.emit("UPDATE_USER_LIST", users);
-		  socket.removeAllListeners();
+		try {
+			const index = users.findIndex((element) => element.id === socket.id);
+			if (index >= 0) {
+				console.log('Usuario desconectado');
+				const realTime = new RealTime();
+				realTime.user = users[index].userId;
+				realTime.flagIcon = users[index].flagIcon;
+				realTime.city = users[index].city;
+				realTime.postalCode = users[index].postalCode;
+				realTime.continent = users[index].continent;
+				realTime.continentCode = users[index].continentCode;
+				realTime.country = users[index].country;
+				realTime.countryIsoCode = users[index].countryIsoCode;
+				realTime.locationLatLong = users[index].locationLatLong;
+				realTime.accuracyRadius = users[index].accuracyRadius;
+				realTime.timeZone = users[index].timeZone;
+				realTime.region = users[index].region;
+				realTime.regionIsoCode = users[index].regionIsoCode;
+				realTime.ipAddress = users[index].ipAddress;
+				realTime.ipType = users[index].ipType;
+				realTime.isp = users[index].isp;
+				realTime.conectionType = users[index].conectionType;
+				realTime.navigatorName = users[index].navigatorName;
+				realTime.operatingSystem = users[index].operatingSystem;
+				realTime.conectionTime = users[index].conectionTime;
+				realTime.conectionTimeEnd = new Date(
+					moment().subtract(4, "hours").format()
+				).getTime();
+				realTime.save((err, realTimeStored) => { });
+				users = users.filter((u) => u.id !== socket.id);
+				io.emit("UPDATE_USER_LIST", users);
+				socket.removeAllListeners();
+			}
+			if (agendaStatus) {
+				const index2 = agendaArray.findIndex(
+					(element) => element.id === socket.id
+				);
+				if (index2 >= 0) {
+					agendaArray[index2].conectionTimeEnd = new Date(
+						moment().subtract(4, "hours").format()
+					).getTime();
+				}
+			}
+		} catch (error) {
+			console.log(error);
 		}
-		if (agendaStatus) {
-		  const index2 = agendaArray.findIndex(
-			(element) => element.id === socket.id
-		  );
-		  if (index2 >= 0) {
-			agendaArray[index2].conectionTimeEnd = new Date(
-			  moment().subtract(4, "hours").format()
-			).getTime();
-		  }
-		}
-	  } catch (error) {
-		console.log(error);
-	  }
 	});
-  });
+});
 
 // Día 12
 const agendaDateStartAux = momentTimezone.tz(
 	"2021-11-12T16:05:00",
 	"America/Santiago"
-  );
+);
+
+//Comienzo prueba
+
+const finalizarTest = momentTimezone.tz(
+	"2021-11-15T12:50:00",
+	"America/Santiago"
+);
 
 const agendaDateStart = moment(agendaDateStartAux).format()
 const activeAgendaStart = schedule.scheduleJob(agendaDateStart, function () {
-	console.log('Se activo la agenda');
 	agendaArray = users;
 	agendaStatus = true;
-  });
+});
 
-  const agendaDateEndAux = momentTimezone.tz(
+
+
+
+const agendaDateEndAux = momentTimezone.tz(
 	"2021-11-12T19:00:00",
 	"America/Santiago"
-  );
-  const agendaDateEnd = moment(agendaDateEndAux).format();
-  const activeAgendaEnd = schedule.scheduleJob(agendaDateEnd, function () {
+);
+const agendaDateEnd = moment(agendaDateEndAux).format();
+const activeAgendaEnd = schedule.scheduleJob(agendaDateEnd, function () {
 	agendaArray = [];
 	agendaStatus = false;
-  });
+});
 // Día 13
 const agendaDateStartAux2 = momentTimezone.tz(
 	"2021-11-13T07:50:00",
 	"America/Santiago"
-  );
+);
 
 const agendaDateStart2 = moment(agendaDateStartAux2).format()
 const activeAgendaStart2 = schedule.scheduleJob(agendaDateStart2, function () {
 	agendaArray = users;
 	agendaStatus = true;
-  });
+});
 
-  const agendaDateEndAux2 = momentTimezone.tz(
+const agendaDateEndAux2 = momentTimezone.tz(
 	"2021-11-13T19:00:00",
 	"America/Santiago"
-  );
-  const agendaDateEnd2 = moment(agendaDateEndAux2).format();
-  const activeAgendaEnd2 = schedule.scheduleJob(agendaDateEnd2, function () {
+);
+const agendaDateEnd2 = moment(agendaDateEndAux2).format();
+const activeAgendaEnd2 = schedule.scheduleJob(agendaDateEnd2, function () {
 	agendaArray = [];
 	agendaStatus = false;
-  });
+});
 
-  // Día 1
+// Día 1
 //#region
 //Aquí puedes probar las conexiones por charla cambianod las fechas
 //Tienes que iniciar la agenda en la linea 545 aprox
@@ -627,13 +674,13 @@ for (let index = 0; index < agenda1.length; index++) {
 		userAgenda.peakCount = peak.count;
 		userAgenda.peakTime = peak.time;
 		userAgenda.method = "Automatic";
-		userAgenda.save((err, userAgendaStored) => {});
+		userAgenda.save((err, userAgendaStored) => { });
 		agendaArray = users;
 		peak = {
-		  time: null,
-		  count: 0,
+			time: null,
+			count: 0,
 		};
-	  });
+	});
 }
 
 //Día 2
@@ -648,13 +695,13 @@ for (let index2 = 0; index2 < agenda2.length; index2++) {
 		userAgenda.peakCount = peak.count;
 		userAgenda.peakTime = peak.time;
 		userAgenda.method = "Automatic";
-		userAgenda.save((err, userAgendaStored) => {});
+		userAgenda.save((err, userAgendaStored) => { });
 		agendaArray = users;
 		peak = {
-		  time: null,
-		  count: 0,
+			time: null,
+			count: 0,
 		};
-	  });
+	});
 }
 
 

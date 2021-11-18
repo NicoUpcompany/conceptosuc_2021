@@ -27,7 +27,15 @@ const userSchema = Schema({
 	active: { type: Boolean, default: true },
 	agendaDaysName: [Object],
 	agendaDaysNumber: [Object],
-	agenda: { type: Boolean, default: false }
+	agenda: { type: Boolean, default: false },
+	test: { type: Boolean, default: false },
+	active: { type: Boolean, default: true },
+	ptos: {type: Number, default: 0},
+	note: {type: Number, default:0},
+	startTest: {type: Boolean, default: false},
+	aprobado: {type: Boolean, default: false},
+	correctas: {type: Number, default: 0},
+	finishTest: {type: String, default:"0"}
 });
 
 module.exports = mongoose.model("User", userSchema);

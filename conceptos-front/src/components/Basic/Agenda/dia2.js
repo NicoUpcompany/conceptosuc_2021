@@ -37,10 +37,10 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				<div className="plenario">
 					<p>Plenario</p>
 				</div>
-				{/* <Link
+				<Link
 					className='btn2'
 					to='/sala2'
-				>VER CURSO AQUÍ</Link> */}
+				>VER CURSO AQUÍ</Link>
 			</div>
 
 			<RowSpeaker
@@ -134,7 +134,7 @@ const Dia2 = ({ setSaveData, abrirCerrar, state }) => {
 				speaker2="Dr. Felipe Maluenda"
 				cargo2="Becado Medicina de Urgencia
 				Pontificia Universidad Católica de Chile"
-				imgSpeaker2={cristian}
+				imgSpeaker2={felipem}
 			/>
 
 			<div className="break">
@@ -482,11 +482,11 @@ Miembro Comité de Postgrado Pediatría, PUC."
 				grey=""
 				inicio="16:30"
 				fin="16:40"
-				tematica="Micrófono Abierto desde México"
-				speaker2="Dr. Ricardo Bañuelos"
-				cargo2="Especialista en Medicina de Emergencias Hospital de Traumatología y Ortopedia Dr. y Gral. Rafael Moreno Valle.
-Adscrito al servicio de Urgencias en Instituto Mexicano del Seguro Social"
-				imgSpeaker2={ricardo}
+				tematica="Micrófono abierto desde USA"
+				speaker2=" Dr Rolando Valenzuela, USA"
+				cargo2="Médico de Emergencias en Stony Brook, NY 
+				Profesor Clínico Asistente de Medicina de Emergencia, División de Medicina Internacional de Emergencia, Desarrollo de sistemas de trauma, Desarrollo de registros de trauma, Desarrollo de EM en sistemas de salud, medicina tropical"
+				imgSpeaker2={rolando}
 
 			/>
 			<RowSpeaker

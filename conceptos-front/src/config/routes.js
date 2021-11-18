@@ -26,6 +26,9 @@ import Perfil from "../pages/Basic/Perfil/Perfil";
 import Error404 from "../pages/Error404";
 import { Viernes } from "../components/Basic/OnDemand/Viernes";
 import { Sabado } from "../components/Basic/OnDemand/Sabado";
+import { Test } from "../pages/Basic/Test/Test";
+import Streaming3 from "../pages/Basic/Test/Streaming3";
+import { TestPage } from "../pages/Admin/Test/TestPage";
 
 const routes = [
 	{
@@ -84,6 +87,11 @@ const routes = [
 				exact: true,
 			},
 			{
+				path: "/dashboard/prueba",
+				component: TestPage,
+				exact: true,
+			},
+			{
 				component: Error404,
 			},
 		],
@@ -126,6 +134,11 @@ const routes = [
 			{
 				path: "/perfil",
 				component: Perfil,
+				exact: true,
+			},
+			{
+				path: "/evaluacion2111",
+				component: Streaming3,
 				exact: true,
 			},
 			{
